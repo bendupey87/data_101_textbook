@@ -1,0 +1,1864 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data 101 &#8212; Data 101</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_101_book';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data 101</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data_101_book.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data 101</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Data 101</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-framework-for-solving-analytical-problems-with-python">A framework for solving analytical problems with Python.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-1-basic-python-usage-for-data-exploration-manipulation"><strong>Chapter 1: Basic Python Usage for Data Exploration &amp; Manipulation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-import-statements"><strong>1.1: Basic Import Statements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe-basics"><strong>1.2: Pandas DataFrame - Basics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe"><strong>Creating a DataFrame</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-data"><strong>Inspecting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data"><strong>Selecting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data-with-iloc"><strong>Selecting Data with iloc</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-by-label-with-loc"><strong>Select by label with loc</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data"><strong>Filtering Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-columns"><strong>Adding and Modifying Columns</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-data"><strong>Sorting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating"><strong>Grouping and Aggregating</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-data"><strong>Saving and Loading Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-size-number-of-columns-rows-of-a-df"><strong>Finding the Size (Number of Columns / Rows) of a df</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions-for-data-manipulation"><strong>1.3: Python Functions for Data Manipulation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summation-and-length">Summation and Length</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum">Minimum and Maximum</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-using-built-in">Average (using built-in)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-statistics-module">Using the <code class="docutils literal notranslate"><span class="pre">statistics</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy">Using NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#five-number-summary-numpy">Five Number Summary (NumPy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding-and-aggregation">Rounding and Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by-frequency-tables">Group By (Frequency Tables)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-data-types"><strong>1.4: Python Data Types</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types">Numeric Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-int">Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-float">Floating-Point Numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers-complex">Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types">Text Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str">Strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types">Sequence Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-list">Lists (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-tuple">Tuples (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ranges-range">Ranges (<code class="docutils literal notranslate"><span class="pre">range</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-dict">Dictionaries (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types">Mapping Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-type">Boolean Type</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans-bool">Booleans (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#none-type">None Type</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#none-nonetype">None (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-2-data-visualization"><strong>Chapter 2: Data Visualization</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-data-run-this-first"><strong>Setup Data</strong> (Run this first)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart"><strong>2.1: Bar Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-chart"><strong>2.2: Line Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot"><strong>2.3: Scatter Plot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram"><strong>2.4: Histogram</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot"><strong>2.5: Boxplot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart"><strong>2.6: Pie Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series"><strong>2.7: Time Series</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-run-me-first"><strong>Setup (Run me first)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-time-series"><strong>Plotting the time series</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-3-descriptive-statistics"><strong>Chapter 3: Descriptive Statistics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-quality-report"><strong>3.1 The Data Quality Report</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-tendency"><strong>3.2 Central Tendency</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mean">The Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-median">The Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mode">The Mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-and-shape"><strong>3.3 Variation and Shape</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation">Variance and Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-scores">Z-Scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness"><strong>3.4 Skewness</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quartiles"><strong>3.5 Quartiles</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-quartiles">Finding Quartiles</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#five-number-summary">Five-Number Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-categorical-variables"><strong>3.6 Organizing Categorical Variables</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-tables-see-python-functions-group-by-in-chapter-1"><strong>Frequency Tables (See Python Functions - <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">By</span></code> in Chapter 1)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-variables"><strong>3.7 Visualizing Variables</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-data-quality-issues"><strong>2.8 Identifying Data Quality Issues</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>3.8 Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-101">
+<h1><strong>Data 101</strong><a class="headerlink" href="#data-101" title="Link to this heading">#</a></h1>
+<section id="a-framework-for-solving-analytical-problems-with-python">
+<h2>A framework for solving analytical problems with Python.<a class="headerlink" href="#a-framework-for-solving-analytical-problems-with-python" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-1-basic-python-usage-for-data-exploration-manipulation">
+<h1><strong>Chapter 1: Basic Python Usage for Data Exploration &amp; Manipulation</strong><a class="headerlink" href="#chapter-1-basic-python-usage-for-data-exploration-manipulation" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This chapter explores some of the basic, everyday functions that I use in my role as a data analyst. This is a framework that is time-proven and effective in exploring and manipluting datasets. The following tools, libraries, and methodologies will get you started in performing exploratory data analysis on live data sets.</p>
+</section>
+<section id="basic-import-statements">
+<h2><strong>1.1: Basic Import Statements</strong><a class="headerlink" href="#basic-import-statements" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas - For Data Manipulation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
+<span class="c1"># Numpy - For Linear Algebra and Other Mathematics</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="c1"># Matplotlib - For plotting graphs. </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
+</pre></div>
+</div>
+</section>
+<section id="pandas-dataframe-basics">
+<h2><strong>1.2: Pandas DataFrame - Basics</strong><a class="headerlink" href="#pandas-dataframe-basics" title="Link to this heading">#</a></h2>
+<section id="creating-a-dataframe">
+<h3><strong>Creating a DataFrame</strong><a class="headerlink" href="#creating-a-dataframe" title="Link to this heading">#</a></h3>
+<p>This guide covers the most common operations you’ll use with pandas DataFrames.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Statement for Pandas:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Creating data that we will convert to a </span>
+<span class="c1"># Pandas DataFrame object.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Student&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Ben&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;GPA&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">],</span>
+    <span class="s2">&quot;Credits&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Displaying the df</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="inspecting-data">
+<h3><strong>Inspecting Data</strong><a class="headerlink" href="#inspecting-data" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the first 5 rows</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># .head() defaults to 5 rows. </span>
+<span class="c1"># If you want to view the first x rows, just insert the number of rows you would like </span>
+<span class="c1"># to view into the parenthesis. For example, if you want to view the first 7 rows</span>
+<span class="c1"># of the DataFrame, just execute the following command:</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># Get basic info about the DataFrame (Non Null counts per column and datatype of each column.)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+
+<span class="c1"># Summary statistics</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="selecting-data">
+<h3><strong>Selecting Data</strong><a class="headerlink" href="#selecting-data" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a column</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;GPA&quot;</span><span class="p">])</span>
+
+<span class="c1"># Select multiple columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Student&quot;</span><span class="p">,</span> <span class="s2">&quot;Credits&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+<section id="selecting-data-with-iloc">
+<h3><strong>Selecting Data with iloc</strong><a class="headerlink" href="#selecting-data-with-iloc" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># .iloc is not a column or a stored attribute of the DataFrame — it is an </span>
+<span class="c1"># indexer object that lets you select data by integer position (row and </span>
+<span class="c1"># column numbers).</span>
+
+<span class="c1"># You always call it with square brackets [], and you can pass it one </span>
+<span class="c1"># or two arguments:</span>
+
+<span class="c1"># General form:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_index</span><span class="p">,</span> <span class="n">column_index</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Row index (first argument):</p>
+<ul>
+<li><p>Single integer → returns a row.</p></li>
+<li><p>Slice (<code class="docutils literal notranslate"><span class="pre">0:3</span></code>) → returns multiple rows.</p></li>
+<li><p>List of integers ([0, 2]) → returns multiple rows.</p></li>
+</ul>
+</li>
+<li><p>Column index (second argument, optional):</p>
+<ul>
+<li><p>Works the same way as row index but applies to columns.</p></li>
+<li><p>If you leave it out, you get the whole row.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>               <span class="c1"># First row (row index 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>            <span class="c1"># First row, second column (integer positions)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>        <span class="c1"># First two rows and first two columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>  <span class="c1"># Specific rows and columns</span>
+</pre></div>
+</div>
+<p>Selecting Data from Pandas DataFrame objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select by integer location (iloc)</span>
+<span class="c1"># iloc uses &quot;integer-location based indexing&quot;</span>
+<span class="c1"># It only works with row/column numbers (not labels).</span>
+<span class="c1"># Remember: Python uses 0-based indexing.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>        <span class="c1"># Entire first row (row index 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>     <span class="c1"># Value at first row, second column (GPA of Alice)</span>
+</pre></div>
+</div>
+</section>
+<section id="select-by-label-with-loc">
+<h3><strong>Select by label with loc</strong><a class="headerlink" href="#select-by-label-with-loc" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loc uses labels instead of integer positions.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Student&quot;</span><span class="p">])</span>  <span class="c1"># Student name in row with index label 0</span>
+
+</pre></div>
+</div>
+</section>
+<section id="filtering-data">
+<h3><strong>Filtering Data</strong><a class="headerlink" href="#filtering-data" title="Link to this heading">#</a></h3>
+<p>If we want to filter a Pandas DataFrame on a condition, we must first define that condition. For example, let’s say that we want to filter a DataFrame of students down to only students that have a GPA greater than 3.5.</p>
+<p>The contition, in pseudocode, would be <code class="docutils literal notranslate"><span class="pre">df[GPA]</span> <span class="pre">&gt;</span> <span class="pre">3.5</span></code>. We can define the condition as follows, in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GPA&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">3.5</span>
+</pre></div>
+</div>
+<p>Now, to filter the DataFrame by that position, we can simply insert it as a “Column Name” into the DataFrame. And Pandas will know to only return rows where that condition is true:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying the rows with a GPA &gt; 3.5</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">condition</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We can also filter on multiple conditions. For instance, let’s say we want to filter the DataFrame to rows that only have a GPA greater than 3.5 (out last condition) <strong>and</strong> where credits are &gt; 50.</p>
+<p>To accomplish this, you simply have to perform the following steps:</p>
+<p><strong>Step 1</strong>: Define your 2 conditions</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gpa_condition</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GPA&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">3.5</span>
+<span class="n">credits_condition</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Credits&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span>
+</pre></div>
+</div>
+<p><strong>Step 2</strong> Insert your conditions in square brackets, immediately after your dataframe object. Make sure to seperate your conditions by <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Displaying rows with GPA &gt; 3.5 and credits &gt; 50 </span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">gpa_condition</span> <span class="o">&amp;</span> <span class="n">credits_condition</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Side Note: <code class="docutils literal notranslate"><span class="pre">Logical</span> <span class="pre">operators</span></code> in Python will be discussed later in these notes. They’re pretty easy to learn and you can do some very cool things with them!</p>
+</section>
+<section id="adding-and-modifying-columns">
+<h3><strong>Adding and Modifying Columns</strong><a class="headerlink" href="#adding-and-modifying-columns" title="Link to this heading">#</a></h3>
+<p>To add a new column of a DataFrame, you simply define your new column name in square brackets [] on the DataFrame and assign values to it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new column</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Graduated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="c1"># Modify an existing column</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;GPA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;GPA&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.05</span>
+</pre></div>
+</div>
+</section>
+<section id="sorting-data">
+<h3><strong>Sorting Data</strong><a class="headerlink" href="#sorting-data" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort by GPA descending</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;GPA&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="grouping-and-aggregating">
+<h3><strong>Grouping and Aggregating</strong><a class="headerlink" href="#grouping-and-aggregating" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example with grouping (pretend we have majors)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Major&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Math&quot;</span><span class="p">,</span> <span class="s2">&quot;Math&quot;</span><span class="p">,</span> <span class="s2">&quot;History&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Major&quot;</span><span class="p">)[</span><span class="s2">&quot;GPA&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="saving-and-loading-data">
+<h3><strong>Saving and Loading Data</strong><a class="headerlink" href="#saving-and-loading-data" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;students.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Note: Index=False will not add an index (row counting) row to your export.</span>
+
+<span class="c1"># Load from CSV</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;students.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># Save to Excel</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;students.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Load from Excel</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;students.xlsx&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="finding-the-size-number-of-columns-rows-of-a-df">
+<h3><strong>Finding the Size (Number of Columns / Rows) of a df</strong><a class="headerlink" href="#finding-the-size-number-of-columns-rows-of-a-df" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape of the DataFrame (rows, columns)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>      <span class="c1"># e.g. (3, 3)</span>
+
+<span class="c1"># Number of rows</span>
+<span class="n">display</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>       <span class="c1"># e.g. 3</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># also gives 3</span>
+
+<span class="c1"># Number of columns</span>
+<span class="n">display</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>  <span class="c1"># e.g. 3</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>      <span class="c1"># also gives 3</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-functions-for-data-manipulation">
+<h2><strong>1.3: Python Functions for Data Manipulation</strong><a class="headerlink" href="#python-functions-for-data-manipulation" title="Link to this heading">#</a></h2>
+<p>Python provides built-in functions and external libraries (like NumPy) to help with data
+manipulation and basic statistical analysis. Below are some of the most common tools
+you’ll use.</p>
+<section id="built-in-functions">
+<h3>Built-in Functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">#</a></h3>
+<section id="summation-and-length">
+<h4>Summation and Length<a class="headerlink" href="#summation-and-length" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>  <span class="c1"># 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>  <span class="c1"># 5</span>
+</pre></div>
+</div>
+</section>
+<section id="minimum-and-maximum">
+<h4>Minimum and Maximum<a class="headerlink" href="#minimum-and-maximum" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>  <span class="c1"># 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>  <span class="c1"># 10</span>
+</pre></div>
+</div>
+</section>
+<section id="average-using-built-in">
+<h4>Average (using built-in)<a class="headerlink" href="#average-using-built-in" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>  <span class="c1"># 6.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-the-statistics-module">
+<h3>Using the <code class="docutils literal notranslate"><span class="pre">statistics</span></code> Module<a class="headerlink" href="#using-the-statistics-module" title="Link to this heading">#</a></h3>
+<p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">statistics</span></code> library provides more descriptive statistics.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>      <span class="c1"># Average</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>    <span class="c1"># Middle value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>      <span class="c1"># Most common value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>     <span class="c1"># Standard deviation</span>
+</pre></div>
+</div>
+</section>
+<section id="using-numpy">
+<h3>Using NumPy<a class="headerlink" href="#using-numpy" title="Link to this heading">#</a></h3>
+<p>NumPy is a powerful library for numerical computing. It is often used for
+summary statistics and array manipulations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>   <span class="c1"># Average</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span> <span class="c1"># Median</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>    <span class="c1"># Standard deviation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>    <span class="c1"># Variance</span>
+</pre></div>
+</div>
+</section>
+<section id="five-number-summary-numpy">
+<h3>Five Number Summary (NumPy)<a class="headerlink" href="#five-number-summary-numpy" title="Link to this heading">#</a></h3>
+<p>The five number summary includes: <strong>minimum, Q1, median, Q3, maximum</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">five_num</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+    <span class="s2">&quot;Q1&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+    <span class="s2">&quot;median&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+    <span class="s2">&quot;Q3&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span>
+    <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">five_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="rounding-and-aggregation">
+<h3>Rounding and Aggregation<a class="headerlink" href="#rounding-and-aggregation" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.14159</span><span class="p">,</span> <span class="mf">2.71828</span><span class="p">,</span> <span class="mf">1.61803</span><span class="p">]</span>
+
+<span class="c1"># Round to 2 decimal places</span>
+<span class="n">rounded</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rounded</span><span class="p">)</span>  <span class="c1"># [3.14, 2.72, 1.62]</span>
+</pre></div>
+</div>
+</section>
+<section id="group-by-frequency-tables">
+<h3>Group By (Frequency Tables)<a class="headerlink" href="#group-by-frequency-tables" title="Link to this heading">#</a></h3>
+<p>The groupby() function in pandas is a powerful way to create frequency tables and perform aggregations. It allows you to split a dataset into groups based on a categorical variable (e.g., Gender, Eye Color), and then apply a calculation (such as mean, count, or sum) within each group.</p>
+<p>This is especially useful when you want to compute summary statistics (e.g., average age by gender) or generate frequency distributions of categorical data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Create a small dataset with Age, Gender, and Eye Color</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s1">&#39;Gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Eye Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Convert the dictionary into a pandas DataFrame</span>
+<span class="n">demographics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Display the full demographics table</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Demographics Table:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">demographics</span><span class="p">)</span>
+
+<span class="c1"># Group the data by Gender and calculate the average Age for each group</span>
+<span class="n">avg_age_by_gender</span> <span class="o">=</span> <span class="n">demographics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Display the aggregated table (average Age by Gender)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Average Age by Gender Table:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">avg_age_by_gender</span><span class="p">)</span>
+
+<span class="c1"># The average age for females in our sample data is higher</span>
+<span class="c1"># than the average age of males. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Demographics Table:&#39;
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Eye Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22</td>
+      <td>m</td>
+      <td>blue</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27</td>
+      <td>f</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>30</td>
+      <td>f</td>
+      <td>blue</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Average Age by Gender Table:&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gender
+f    28.5
+m    22.0
+Name: Age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Built-in Python functions: <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">round()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">statistics</span></code> module: <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">mode()</span></code>, <code class="docutils literal notranslate"><span class="pre">stdev()</span></code></p></li>
+<li><p>NumPy: <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">std()</span></code>, <code class="docutils literal notranslate"><span class="pre">var()</span></code>, <code class="docutils literal notranslate"><span class="pre">percentile()</span></code></p></li>
+<li><p>Use these tools to quickly compute descriptive statistics and manipulate data arrays.</p></li>
+</ul>
+</section>
+</section>
+<section id="python-data-types">
+<h2><strong>1.4: Python Data Types</strong><a class="headerlink" href="#python-data-types" title="Link to this heading">#</a></h2>
+<p>Python has several built-in data types that are commonly used for data analysis and programming.
+Below is a summary of the most important ones, along with examples.</p>
+<section id="numeric-types">
+<h3>Numeric Types<a class="headerlink" href="#numeric-types" title="Link to this heading">#</a></h3>
+<section id="integers-int">
+<h4>Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>)<a class="headerlink" href="#integers-int" title="Link to this heading">#</a></h4>
+<p>Whole numbers, positive or negative, without a decimal point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="floating-point-numbers-float">
+<h4>Floating-Point Numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>)<a class="headerlink" href="#floating-point-numbers-float" title="Link to this heading">#</a></h4>
+<p>Numbers that contain a decimal point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.6</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;float&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="complex-numbers-complex">
+<h4>Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)<a class="headerlink" href="#complex-numbers-complex" title="Link to this heading">#</a></h4>
+<p>Numbers with a real and imaginary part.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;complex&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="text-types">
+<h3>Text Types<a class="headerlink" href="#text-types" title="Link to this heading">#</a></h3>
+<section id="strings-str">
+<h4>Strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>)<a class="headerlink" href="#strings-str" title="Link to this heading">#</a></h4>
+<p>Sequences of characters enclosed in quotes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;str&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sequence-types">
+<h3>Sequence Types<a class="headerlink" href="#sequence-types" title="Link to this heading">#</a></h3>
+<section id="lists-list">
+<h4>Lists (<code class="docutils literal notranslate"><span class="pre">list</span></code>)<a class="headerlink" href="#lists-list" title="Link to this heading">#</a></h4>
+<p>Ordered, mutable collections of items.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tuples-tuple">
+<h4>Tuples (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)<a class="headerlink" href="#tuples-tuple" title="Link to this heading">#</a></h4>
+<p>Ordered, immutable collections of items.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 4</span>
+</pre></div>
+</div>
+</section>
+<section id="ranges-range">
+<h4>Ranges (<code class="docutils literal notranslate"><span class="pre">range</span></code>)<a class="headerlink" href="#ranges-range" title="Link to this heading">#</a></h4>
+<p>Represents a sequence of numbers, commonly used in loops.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># 0, 1, 2</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dictionaries-dict">
+<h3>Dictionaries (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)<a class="headerlink" href="#dictionaries-dict" title="Link to this heading">#</a></h3>
+<section id="mapping-types">
+<h4>Mapping Types<a class="headerlink" href="#mapping-types" title="Link to this heading">#</a></h4>
+<p>Collections of key-value pairs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;GPA&quot;</span><span class="p">:</span> <span class="mf">3.8</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>  <span class="c1"># Alice</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="boolean-type">
+<h3>Boolean Type<a class="headerlink" href="#boolean-type" title="Link to this heading">#</a></h3>
+<section id="booleans-bool">
+<h4>Booleans (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)<a class="headerlink" href="#booleans-bool" title="Link to this heading">#</a></h4>
+<p>Represents <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_student</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">has_graduated</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">is_student</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bool&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="none-type">
+<h3>None Type<a class="headerlink" href="#none-type" title="Link to this heading">#</a></h3>
+<section id="none-nonetype">
+<h4>None (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)<a class="headerlink" href="#none-nonetype" title="Link to this heading">#</a></h4>
+<p>Represents the absence of a value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;NoneType&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h3>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Numeric types</strong>: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code></p></li>
+<li><p><strong>Text type</strong>: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>Sequence types</strong>: <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><strong>Mapping type</strong>: <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p><strong>Set types</strong>: <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">frozenset</span></code></p></li>
+<li><p><strong>Boolean type</strong>: <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><strong>Special type</strong>: <code class="docutils literal notranslate"><span class="pre">NoneType</span></code></p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<p>Understanding these basic data types is essential before working with libraries like pandas and NumPy.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-2-data-visualization">
+<h1><strong>Chapter 2: Data Visualization</strong><a class="headerlink" href="#chapter-2-data-visualization" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><strong>Introduction</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>In this chapter, we will explore different chart types for visualizing data using Python.<br />
+We will focus on <strong>Matplotlib</strong> and <strong>pandas built-in plotting</strong>, which are the most common tools
+for basic visualization.</p>
+</section>
+<section id="setup-data-run-this-first">
+<h2><strong>Setup Data</strong> (Run this first)<a class="headerlink" href="#setup-data-run-this-first" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Generate some example data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">78</span><span class="p">],</span>
+    <span class="s2">&quot;Values2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)),</span>
+    <span class="s2">&quot;Z&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Category</th>
+      <th>Values</th>
+      <th>Values2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>23</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>45</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>56</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>D</td>
+      <td>78</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="bar-chart">
+<h2><strong>2.1: Bar Chart</strong><a class="headerlink" href="#bar-chart" title="Link to this heading">#</a></h2>
+<p>A <strong>bar chart</strong> uses rectangular bars to represent values across categories.<br />
+The length or height of each bar is proportional to the value it represents.<br />
+Bar charts are best for comparing quantities across <strong>different categories</strong> (e.g., sales by region, students by major).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Category&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Values&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bar Chart Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Category&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/067efe7c0dc54192f7e879610c529c15afb5a0f96f0c7fa5cbdca979482a8be4.png" src="_images/067efe7c0dc54192f7e879610c529c15afb5a0f96f0c7fa5cbdca979482a8be4.png" />
+</div>
+</div>
+</section>
+<section id="line-chart">
+<h2><strong>2.2: Line Chart</strong><a class="headerlink" href="#line-chart" title="Link to this heading">#</a></h2>
+<p>A <strong>line chart</strong> displays data points connected by a continuous line.<br />
+It is most useful for showing <strong>trends over time</strong> (e.g., monthly revenue, daily temperature).<br />
+Line charts emphasize the movement and direction of data rather than exact values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the X value, Y value, and set the marker to &#39;o&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">data2</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="c1"># Set titles and other visual enhancements</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Line Chart Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6b8aff7be7537c45a9a475e65f64cf9273f32179bab5a78d7146ce1947fdf2c0.png" src="_images/6b8aff7be7537c45a9a475e65f64cf9273f32179bab5a78d7146ce1947fdf2c0.png" />
+</div>
+</div>
+</section>
+<section id="scatter-plot">
+<h2><strong>2.3: Scatter Plot</strong><a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h2>
+<p>A <strong>scatter plot</strong> uses points on a two-dimensional plane to represent values of two variables.<br />
+It is commonly used to identify <strong>relationships, correlations, and clusters</strong> between variables (e.g., height vs. weight, study time vs. test score).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">data2</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scatter Plot Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/75e86bb3d585385cd88d109a2e2f1c3f6107d56dbd14c9c493c3e8f26a9d932b.png" src="_images/75e86bb3d585385cd88d109a2e2f1c3f6107d56dbd14c9c493c3e8f26a9d932b.png" />
+</div>
+</div>
+</section>
+<section id="histogram">
+<h2><strong>2.4: Histogram</strong><a class="headerlink" href="#histogram" title="Link to this heading">#</a></h2>
+<p>A <strong>histogram</strong> groups numerical data into ranges (bins) and uses bars to show the frequency of values within each bin.<br />
+It is used to understand the <strong>distribution of a dataset</strong> (e.g., exam scores, income levels).<br />
+Unlike a bar chart, the bars in a histogram represent intervals of continuous data rather than discrete categories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ce9bc7c512c70300de908894931800d3ce3c3905927a378fd9803e6f0175ad5e.png" src="_images/ce9bc7c512c70300de908894931800d3ce3c3905927a378fd9803e6f0175ad5e.png" />
+</div>
+</div>
+</section>
+<section id="boxplot">
+<h2><strong>2.5: Boxplot</strong><a class="headerlink" href="#boxplot" title="Link to this heading">#</a></h2>
+<p>A <strong>boxplot</strong> (or whisker plot) summarizes the distribution of a dataset using five-number summary statistics: <strong>minimum, Q1, median, Q3, and maximum</strong>.<br />
+It is especially useful for identifying <strong>outliers</strong> and comparing the spread of data across multiple groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b2d3d4df7b7589fd8ba1784487104f19ef1561dc6f3749bbb8b84fe27d2bdfc3.png" src="_images/b2d3d4df7b7589fd8ba1784487104f19ef1561dc6f3749bbb8b84fe27d2bdfc3.png" />
+</div>
+</div>
+</section>
+<section id="pie-chart">
+<h2><strong>2.6: Pie Chart</strong><a class="headerlink" href="#pie-chart" title="Link to this heading">#</a></h2>
+<p>A <strong>pie chart</strong> represents data as slices of a circle, where each slice corresponds to a proportion of the whole.<br />
+Pie charts are used to show <strong>part-to-whole relationships</strong>, such as percentages of total sales by product line.<br />
+They are most effective when there are only a few categories, and proportions are easy to distinguish.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Values&quot;</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Category&quot;</span><span class="p">],</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pie Chart Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/41424e09bab78ac420aa84412cb72f7a65b10ae7880436fbb34026abb18b4410.png" src="_images/41424e09bab78ac420aa84412cb72f7a65b10ae7880436fbb34026abb18b4410.png" />
+</div>
+</div>
+</section>
+<section id="time-series">
+<h2><strong>2.7: Time Series</strong><a class="headerlink" href="#time-series" title="Link to this heading">#</a></h2>
+<p>A <strong>time series</strong> is a sequence of data points recorded at specific time intervals.<br />
+It is commonly used to analyze how values change over time (e.g., stock prices, daily sales, weather data).<br />
+Time series visualizations are useful for identifying <strong>trends, seasonality, and patterns</strong> that occur across time.</p>
+<section id="setup-run-me-first">
+<h3><strong>Setup (Run me first)</strong><a class="headerlink" href="#setup-run-me-first" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SETUP - DON&#39;T WORRY ABOUT THIS PART, WE WILL COVER STUFF LIKE THIS LATER!  </span>
+<span class="c1"># Create a simple time series dataset </span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2025-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">time_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Date&quot;</span><span class="p">:</span> <span class="n">dates</span><span class="p">,</span> <span class="s2">&quot;Value&quot;</span><span class="p">:</span> <span class="n">values</span><span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">time_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1">## END SETUP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2025-01-01</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2025-01-02</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2025-01-03</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2025-01-04</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2025-01-05</td>
+      <td>98</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="plotting-the-time-series">
+<h3><strong>Plotting the time series</strong><a class="headerlink" href="#plotting-the-time-series" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the time series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Example Time Series&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6caabfd26805024fd669c66f2417fb729a7a849b70c6412201751250cbbfa607.png" src="_images/6caabfd26805024fd669c66f2417fb729a7a849b70c6412201751250cbbfa607.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="chapter-3-descriptive-statistics">
+<h1><strong>Chapter 3: Descriptive Statistics</strong><a class="headerlink" href="#chapter-3-descriptive-statistics" title="Link to this heading">#</a></h1>
+<section id="id3">
+<h2><strong>Introduction</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>This chapter focuses on data exploration and descriptive statistics. Descriptive statistics allow us to understand, summarize, and visualize the characteristics of a dataset before applying more complex models.</p>
+</section>
+<section id="the-data-quality-report">
+<h2><strong>3.1 The Data Quality Report</strong><a class="headerlink" href="#the-data-quality-report" title="Link to this heading">#</a></h2>
+<p>A data quality report summarizes the key characteristics of a dataset. It includes tables and graphs describing both numerical and categorical variables. Typical measures include <strong>central tendency</strong>, <strong>variation</strong>, and <strong>shape</strong>. Data quality reports also check for issues such as <strong>missing values</strong> and <strong>outliers</strong>.</p>
+</section>
+<section id="central-tendency">
+<h2><strong>3.2 Central Tendency</strong><a class="headerlink" href="#central-tendency" title="Link to this heading">#</a></h2>
+<p>Central tendency describes where the data “centers” itself. The three most common measures are the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>.</p>
+<section id="the-mean">
+<h3>The Mean<a class="headerlink" href="#the-mean" title="Link to this heading">#</a></h3>
+<p>The arithmetic mean (average) is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{X} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]</div>
+<p><strong>Example in Python:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.4444444444444444)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-median">
+<h3>The Median<a class="headerlink" href="#the-median" title="Link to this heading">#</a></h3>
+<p>The median is the middle value after sorting the data. If (n) is odd, it’s the ((n+1)/2)-th value. If (n) is even, it’s the average of the (n/2)-th and ((n/2)+1)-th values.</p>
+<p><strong>Example in Python:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">salaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35000</span><span class="p">,</span> <span class="mi">37000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="mi">33000</span><span class="p">,</span> <span class="mi">210000</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35000</span><span class="p">,</span> <span class="mi">37000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="mi">33000</span><span class="p">,</span> <span class="mi">210000</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(35000.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-mode">
+<h3>The Mode<a class="headerlink" href="#the-mode" title="Link to this heading">#</a></h3>
+<p>The mode is the most frequently occurring value. Unlike the mean, it is not affected by extreme values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Example data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Using SciPy</span>
+<span class="n">mode_result</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mode:&quot;</span><span class="p">,</span> <span class="n">mode_result</span><span class="o">.</span><span class="n">mode</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Count:&quot;</span><span class="p">,</span> <span class="n">mode_result</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Using pandas (alternative way)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mode with pandas:&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mode: 4
+Count: 3
+Mode with pandas: 4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="variation-and-shape">
+<h2><strong>3.3 Variation and Shape</strong><a class="headerlink" href="#variation-and-shape" title="Link to this heading">#</a></h2>
+<p>In addition to central tendency, every variable is characterized by its <strong>variation</strong> (spread) and <strong>shape</strong>.</p>
+<section id="range">
+<h3>Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\text{Range} = \max(x) - \min(x)
+\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">salaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35000</span><span class="p">,</span> <span class="mi">37000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="mi">33000</span><span class="p">,</span> <span class="mi">210000</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35000</span><span class="p">,</span> <span class="mi">37000</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="mi">33000</span><span class="p">,</span> <span class="mi">210000</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(177000)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variance-and-standard-deviation">
+<h3>Variance and Standard Deviation<a class="headerlink" href="#variance-and-standard-deviation" title="Link to this heading">#</a></h3>
+<p>The sample variance is:</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^{n}(x_i - \bar{x})^2
+\]</div>
+<p>The sample standard deviation is:</p>
+<div class="math notranslate nohighlight">
+\[
+s = \sqrt{s^2}
+\]</div>
+<p><strong>Example in Python:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">65.71</span><span class="p">,</span> <span class="mf">72.30</span><span class="p">,</span> <span class="mf">68.31</span><span class="p">,</span> <span class="mf">67.05</span><span class="p">,</span> <span class="mf">70.68</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">65.71</span><span class="p">,</span> <span class="mf">72.30</span><span class="p">,</span> <span class="mf">68.31</span><span class="p">,</span> <span class="mf">67.05</span><span class="p">,</span> <span class="mf">70.68</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(7.158650000000013), np.float64(2.6755653608162917))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="z-scores">
+<h3>Z-Scores<a class="headerlink" href="#z-scores" title="Link to this heading">#</a></h3>
+<p>The Z-score measures how many standard deviations away from the mean a value is:</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \frac{X - \bar{X}}{s}
+\]</div>
+<p><strong>Example in Python:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">heights</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">heights</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.15863363,  1.30439721, -0.18687639, -0.6578049 ,  0.6989177 ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="skewness">
+<h3><strong>3.4 Skewness</strong><a class="headerlink" href="#skewness" title="Link to this heading">#</a></h3>
+<p>Skewness measures the asymmetry of the distribution.</p>
+<ul class="simple">
+<li><p>If mean &lt; median → <strong>Left-skewed</strong></p></li>
+<li><p>If mean = median → <strong>Symmetrical</strong></p></li>
+<li><p>If mean &gt; median → <strong>Right-skewed</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="quartiles">
+<h2><strong>3.5 Quartiles</strong><a class="headerlink" href="#quartiles" title="Link to this heading">#</a></h2>
+<p>Quartiles describe the position of a specific data value in relation to the rest of the data. <span class="math notranslate nohighlight">\(Q_1\)</span>, <span class="math notranslate nohighlight">\(Q_2\)</span>, <span class="math notranslate nohighlight">\(Q_3\)</span> are 3 numbers that divide the ordered observations into 4 equally sized groups (i.e. each group contains 25% of all observations).</p>
+<section id="finding-quartiles">
+<h3>Finding Quartiles<a class="headerlink" href="#finding-quartiles" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(Q_1\)</span></strong> corresponds to the 25th percentile, i.e., 25% of all observations in the data set are of lesser value than <span class="math notranslate nohighlight">\(Q_1\)</span>. In simple words, <span class="math notranslate nohighlight">\(Q_1\)</span> is the median of all observations to the left of the median.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(Q_2\)</span></strong> corresponds to the 50th percentile, i.e., 50% of all observations in the data set are of lesser value than <span class="math notranslate nohighlight">\(Q_2\)</span>. In simple words, <span class="math notranslate nohighlight">\(Q_2\)</span> corresponds to the median.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(Q_3\)</span></strong> corresponds to the 75th percentile, i.e., 75% of all observations in the data set are of lesser value than <span class="math notranslate nohighlight">\(Q_3\)</span>. In simple words, <span class="math notranslate nohighlight">\(Q_2\)</span> is the median of all observations to the right of the median.</p></li>
+</ul>
+<p><strong>Note: Before finding quartiles, you must write your numbers in ascending (smallest to largest) order</strong></p>
+<p><strong>Formula for the position of the first quartile (Q1):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Position of } Q_1 = \frac{n+1}{4}
+\]</div>
+<p><strong>Formula for the position of the third quartile (Q3):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Position of } Q_3 = \frac{3(n+1)}{4}
+\]</div>
+<p><strong>Interquartile Range (IQR) Formula</strong></p>
+<p>The interquartile range (IQR) measures the spread of the middle 50% of a dataset. It is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{IQR} = Q_3 - Q_1
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> is the first quartile (25th percentile)</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_3\)</span> is the third quartile (75th percentile)</p></li>
+</ul>
+<p><strong>Using this method to calculate outliers</strong></p>
+<p>You can use <span class="math notranslate nohighlight">\(Q_1\)</span>, <span class="math notranslate nohighlight">\(Q_3\)</span>, and the IQR to find outliers in your dataset.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Lower Fence} = Q_1 - 1.5 \times \mathrm{IQR}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Upper Fence} = Q_3 + 1.5 \times \mathrm{IQR}
+\]</div>
+<p>Any number that is &lt; the lower fence is a lower outlier.</p>
+<p>Any number that is &gt; the upper fence is the upper outlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Example dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="c1"># Step 1: Sort the data</span>
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorted data:&quot;</span><span class="p">,</span> <span class="n">sorted_data</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Calculate quartiles</span>
+<span class="n">Q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">Q2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># Median</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q1 (25th percentile): </span><span class="si">{</span><span class="n">Q1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q2 (Median): </span><span class="si">{</span><span class="n">Q2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q3 (75th percentile): </span><span class="si">{</span><span class="n">Q3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Interquartile Range (IQR)</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IQR: </span><span class="si">{</span><span class="n">IQR</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Calculate outlier fences</span>
+<span class="n">lower_fence</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
+<span class="n">upper_fence</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lower Fence: </span><span class="si">{</span><span class="n">lower_fence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Upper Fence: </span><span class="si">{</span><span class="n">upper_fence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Identify outliers</span>
+<span class="n">outliers</span> <span class="o">=</span> <span class="n">sorted_data</span><span class="p">[(</span><span class="n">sorted_data</span> <span class="o">&lt;</span> <span class="n">lower_fence</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sorted_data</span> <span class="o">&gt;</span> <span class="n">upper_fence</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outliers:&quot;</span><span class="p">,</span> <span class="n">outliers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sorted data: [ 1  2  3  4  5  6  7  8  9 15]
+Q1 (25th percentile): 3.25
+Q2 (Median): 5.5
+Q3 (75th percentile): 7.75
+IQR: 4.5
+Lower Fence: -3.5
+Upper Fence: 14.5
+Outliers: [15]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="five-number-summary">
+<h4>Five-Number Summary<a class="headerlink" href="#five-number-summary" title="Link to this heading">#</a></h4>
+<p>The five-number summary includes:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Min}, Q1, \text{Median}, Q3, \text{Max}
+\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="organizing-categorical-variables">
+<h2><strong>3.6 Organizing Categorical Variables</strong><a class="headerlink" href="#organizing-categorical-variables" title="Link to this heading">#</a></h2>
+<section id="frequency-tables-see-python-functions-group-by-in-chapter-1">
+<h3><strong>Frequency Tables (See Python Functions - <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">By</span></code> in Chapter 1)</strong><a class="headerlink" href="#frequency-tables-see-python-functions-group-by-in-chapter-1" title="Link to this heading">#</a></h3>
+<p>A <strong>frequency table</strong> counts occurrences in each category.<br />
+A <strong>relative frequency table</strong> shows percentages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Example dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">])</span>
+
+<span class="c1"># Frequency table (counts)</span>
+<span class="n">freq_table</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frequency Table:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">freq_table</span><span class="p">)</span>
+
+<span class="c1"># Relative frequency table (percentages)</span>
+<span class="n">rel_freq_table</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relative Frequency Table (%):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rel_freq_table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequency Table:
+Apple     3
+Orange    3
+Banana    2
+Name: count, dtype: int64
+
+Relative Frequency Table (%):
+Apple     37.5
+Orange    37.5
+Banana    25.0
+Name: proportion, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-variables">
+<h2><strong>3.7 Visualizing Variables</strong><a class="headerlink" href="#visualizing-variables" title="Link to this heading">#</a></h2>
+<p>Visualizations provide insight into the structure of data.</p>
+<ul class="simple">
+<li><p><strong>Bar chart</strong> → Categorical data comparison</p></li>
+<li><p><strong>Pie chart</strong> → Relative proportions</p></li>
+<li><p><strong>Histogram</strong> → Distribution of numerical data</p></li>
+<li><p><strong>Boxplot</strong> → Five-number summary and outliers</p></li>
+<li><p><strong>Scatter plot</strong> → Relationship between two variables</p></li>
+<li><p><strong>Time series plot</strong> → Trends over time</p></li>
+</ul>
+<p>Note: For further information, see Chapter 2: Data Visualization</p>
+<section id="identifying-data-quality-issues">
+<h3><strong>2.8 Identifying Data Quality Issues</strong><a class="headerlink" href="#identifying-data-quality-issues" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="id4">
+<h2><strong>3.8 Summary</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Descriptive statistics provide the foundation for exploratory data analysis. By calculating measures of central tendency, spread, and shape, and by visualizing variables, analysts can identify patterns, errors, and anomalies in the data before moving into predictive or prescriptive analytics.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Data 101</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-framework-for-solving-analytical-problems-with-python">A framework for solving analytical problems with Python.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-1-basic-python-usage-for-data-exploration-manipulation"><strong>Chapter 1: Basic Python Usage for Data Exploration &amp; Manipulation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-import-statements"><strong>1.1: Basic Import Statements</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe-basics"><strong>1.2: Pandas DataFrame - Basics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe"><strong>Creating a DataFrame</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-data"><strong>Inspecting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data"><strong>Selecting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-data-with-iloc"><strong>Selecting Data with iloc</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-by-label-with-loc"><strong>Select by label with loc</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data"><strong>Filtering Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-columns"><strong>Adding and Modifying Columns</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-data"><strong>Sorting Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating"><strong>Grouping and Aggregating</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-data"><strong>Saving and Loading Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-size-number-of-columns-rows-of-a-df"><strong>Finding the Size (Number of Columns / Rows) of a df</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions-for-data-manipulation"><strong>1.3: Python Functions for Data Manipulation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summation-and-length">Summation and Length</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum">Minimum and Maximum</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-using-built-in">Average (using built-in)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-statistics-module">Using the <code class="docutils literal notranslate"><span class="pre">statistics</span></code> Module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy">Using NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#five-number-summary-numpy">Five Number Summary (NumPy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding-and-aggregation">Rounding and Aggregation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by-frequency-tables">Group By (Frequency Tables)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-data-types"><strong>1.4: Python Data Types</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types">Numeric Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-int">Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-float">Floating-Point Numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers-complex">Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types">Text Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str">Strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types">Sequence Types</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-list">Lists (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-tuple">Tuples (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ranges-range">Ranges (<code class="docutils literal notranslate"><span class="pre">range</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-dict">Dictionaries (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types">Mapping Types</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-type">Boolean Type</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans-bool">Booleans (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#none-type">None Type</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#none-nonetype">None (<code class="docutils literal notranslate"><span class="pre">NoneType</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-2-data-visualization"><strong>Chapter 2: Data Visualization</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-data-run-this-first"><strong>Setup Data</strong> (Run this first)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-chart"><strong>2.1: Bar Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-chart"><strong>2.2: Line Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot"><strong>2.3: Scatter Plot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram"><strong>2.4: Histogram</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot"><strong>2.5: Boxplot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart"><strong>2.6: Pie Chart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series"><strong>2.7: Time Series</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-run-me-first"><strong>Setup (Run me first)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-time-series"><strong>Plotting the time series</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-3-descriptive-statistics"><strong>Chapter 3: Descriptive Statistics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Introduction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-quality-report"><strong>3.1 The Data Quality Report</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-tendency"><strong>3.2 Central Tendency</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mean">The Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-median">The Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-mode">The Mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-and-shape"><strong>3.3 Variation and Shape</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation">Variance and Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-scores">Z-Scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness"><strong>3.4 Skewness</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quartiles"><strong>3.5 Quartiles</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-quartiles">Finding Quartiles</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#five-number-summary">Five-Number Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#organizing-categorical-variables"><strong>3.6 Organizing Categorical Variables</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-tables-see-python-functions-group-by-in-chapter-1"><strong>Frequency Tables (See Python Functions - <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">By</span></code> in Chapter 1)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-variables"><strong>3.7 Visualizing Variables</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-data-quality-issues"><strong>2.8 Identifying Data Quality Issues</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>3.8 Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

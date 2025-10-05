@@ -1,6 +1,2 @@
 format: jb-book
-root: 01_data_101_a_framwork_for_solving_analytical_problems_with_python.ipynb
-chapters:
-  - file: 02_chapter_1_basic_python_usage_for_data_exploration_manipulation.ipynb
-  - file: 03_chapter_2_data_visualization.ipynb
-  - file: 04_chapter_3_descriptive_statistics.ipynb
+root: data_101_book
