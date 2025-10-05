@@ -1,0 +1,18 @@
+html:
+  search:
+    enabled: false
+  use_repository_button: false
+  use_issues_button: false
+  use_edit_page_button: false
+
+execute:
+  execute_notebooks: off
+
+sphinx:
+  extra_extensions: []
+  config:
+    html_search: False
+
+html:
+  extra_css:
+    - custom.css

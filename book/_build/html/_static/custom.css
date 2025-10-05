@@ -1,0 +1,38 @@
+/* Completely remove any search box or container */
+.bd-search,
+div[role="search"],
+input[placeholder="Search"],
+button[title="Launch search"],
+.bd-header .search-button,
+form.bd-search {
+    display: none !important;
+}
+
+/* Remove any leftover spacing where search used to be */
+div.bd-sidebar {
+    padding-top: 0 !important;
+}
+
+/* Remove the floating search shortcut icon if it appears elsewhere */
+kbd, .search-shortcut, .search-button {
+    display: none !important;
+}
+
+/* If Jupyter Book injects keyboard shortcut overlay */
+div:has(input[placeholder="Search"]) {
+    display: none !important;
+}
+
+/* Kill any search-related buttons */
+button.search-button-field,
+button.search-button__button,
+button[aria-label="Search"],
+.btn.search-button-field.search-button__button {
+    display: none !important;
+}
+
+/* Hide its container if any lingering wrapper exists */
+.sidebar-primary-item:has(button.search-button-field) {
+    display: none !important;
+}
+
