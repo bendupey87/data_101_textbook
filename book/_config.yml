@@ -12,6 +12,7 @@ sphinx:
       show_navbar_depth: 2       # Needed for nested headers
       show_toc_level: 3          # Include h3 headers in sidebar
       sidebars: ["sidebar-nav-bs", "page-toc"]  # ✅ Enables right-hand ToC
+      search_bar_text: "Search this book..."
 html_theme_options:
   collapse_navigation: true      # Auto-collapse nested entries
   navigation_depth: 2            # Limit sidebar levels
