@@ -425,7 +425,8 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-type"><strong>3.4.5: Boolean Type</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#none-type"><strong>3.4.6: None Type</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-conditional-logic-making-decisions"><strong>3.4.8: If Statements &amp; Conditional Logic (Making Decisions)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><strong>3.4.6: For Loops</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-conditional-logic-making-decisions"><strong>3.4.7: If Statements &amp; Conditional Logic (Making Decisions)</strong></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-functions-in-python"><strong>3.5: Creating Functions in Python</strong></a><ul class="visible nav section-nav flex-column">
@@ -463,8 +464,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-and-shape"><strong>5.3 Variation and Shape</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#range">Range</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation">Variance and Standard Deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>Range</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation"><strong>Variance and Standard Deviation</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-scores"><strong>Z-Scores</strong></a></li>
 </ul>
 </li>
@@ -1750,7 +1751,7 @@ Min: $1.99, Max: $2,847.50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b9c5524d27571c0d8afa51cb42e5fa05825e355a832961274acb3a91023d5bb4.png" src="_images/b9c5524d27571c0d8afa51cb42e5fa05825e355a832961274acb3a91023d5bb4.png" />
+<img alt="_images/d6facf3f8622707774ce19a38642b2e5e308c7d036ba06193fcdd27e785197ed.png" src="_images/d6facf3f8622707774ce19a38642b2e5e308c7d036ba06193fcdd27e785197ed.png" />
 </div>
 </div>
 </section>
@@ -2841,16 +2842,10 @@ Represents the absence of a value.</p>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;NoneType&#39;&gt;</span>
 </pre></div>
 </div>
-<div style="background: #000080; border: 3px outset #c0c0c0; padding: 12px; margin: 15px 0; font-family: 'MS DOS', 'Perfect DOS VGA 437', 'Courier New', monospace; position: relative;">
-<div style="background: #008080; border: 2px inset #c0c0c0; padding: 8px; text-align: center;">
-<div style="color: #00ffff; font-size: 1.4em; font-weight: bold; text-shadow: 1px 1px 0px #000040; letter-spacing: 2px;">
-▓▓▓ 🔍 PART 2: BASIC EXPLORATORY DATA ANALYSIS & PYTHON FUNCTIONS ▓▓▓
-</div>
-</div>
-<div style="position: absolute; top: 2px; right: 6px; color: #c0c0c0; font-size: 0.7em;">
-[█████████████████████████████████████████████████] 100%
-</div>
-</div><p><strong>What are For Loops?</strong></p>
+</section>
+<section id="for-loops">
+<h4><strong>3.4.6: For Loops</strong><a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h4>
+<p><strong>What are For Loops?</strong></p>
 <p>A <strong>for loop</strong> is a way to repeat an action multiple times. Instead of writing the same code over and over, you can tell Python to “do this thing for each item in a collection.”</p>
 <p>Think of it like giving instructions: <em>“For each student in the class, check their homework”</em> or <em>“For each number in this list, multiply it by 2.”</em></p>
 <p><strong>Basic Structure:</strong></p>
@@ -2963,7 +2958,7 @@ Letter: n
 </ul>
 </section>
 <section id="if-statements-conditional-logic-making-decisions">
-<h4><strong>3.4.8: If Statements &amp; Conditional Logic (Making Decisions)</strong><a class="headerlink" href="#if-statements-conditional-logic-making-decisions" title="Link to this heading">#</a></h4>
+<h4><strong>3.4.7: If Statements &amp; Conditional Logic (Making Decisions)</strong><a class="headerlink" href="#if-statements-conditional-logic-making-decisions" title="Link to this heading">#</a></h4>
 <p><strong>What are If Statements?</strong></p>
 <p>An <strong>if statement</strong> lets your program make decisions. It’s like teaching Python to think: <em>“If this condition is true, do this action. Otherwise, do something else.”</em></p>
 <p>Think of everyday decisions: <em>“If it’s raining, bring an umbrella”</em> or <em>“If my grade is above 90, I get an A.”</em></p>
@@ -4003,7 +3998,7 @@ Mode with pandas: 4
 <h3><strong>5.3 Variation and Shape</strong><a class="headerlink" href="#variation-and-shape" title="Link to this heading">#</a></h3>
 <p>In addition to central tendency, every variable is characterized by its <strong>variation</strong> (spread) and <strong>shape</strong>.</p>
 <section id="range">
-<h4>Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h4>
+<h4><strong>Range</strong><a class="headerlink" href="#range" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[
 \text{Range} = \max(x) - \min(x)
@@ -4027,7 +4022,7 @@ Mode with pandas: 4
 </div>
 </section>
 <section id="variance-and-standard-deviation">
-<h4>Variance and Standard Deviation<a class="headerlink" href="#variance-and-standard-deviation" title="Link to this heading">#</a></h4>
+<h4><strong>Variance and Standard Deviation</strong><a class="headerlink" href="#variance-and-standard-deviation" title="Link to this heading">#</a></h4>
 <p>The sample variance is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -4201,7 +4196,7 @@ Outliers: [15]
 <p><strong>Frequency Tables (See Python Functions - <code class="docutils literal notranslate"><span class="pre">Group</span> <span class="pre">By</span></code> in Chapter 1)</strong></p>
 <p>A <strong>frequency table</strong> counts occurrences in each category.<br />
 A <strong>relative frequency table</strong> shows percentages.</p>
-<div class="cell docutils container">
+<!-- Keywords: group by, groupby, pandas group by, sql group by --><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -5838,9 +5833,7 @@ R^2 : 0.883
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Tuning: k-NN ===
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best params: {&#39;knn__n_neighbors&#39;: 15}
+Best params: {&#39;knn__n_neighbors&#39;: 15}
 CV best ROC AUC: 0.537
 Test ROC AUC   : 0.559
 
@@ -6083,7 +6076,8 @@ Confusion Matrix
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-type"><strong>3.4.5: Boolean Type</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#none-type"><strong>3.4.6: None Type</strong></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-conditional-logic-making-decisions"><strong>3.4.8: If Statements &amp; Conditional Logic (Making Decisions)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops"><strong>3.4.6: For Loops</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-conditional-logic-making-decisions"><strong>3.4.7: If Statements &amp; Conditional Logic (Making Decisions)</strong></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-functions-in-python"><strong>3.5: Creating Functions in Python</strong></a><ul class="visible nav section-nav flex-column">
@@ -6121,8 +6115,8 @@ Confusion Matrix
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-and-shape"><strong>5.3 Variation and Shape</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#range">Range</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation">Variance and Standard Deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><strong>Range</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-and-standard-deviation"><strong>Variance and Standard Deviation</strong></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#z-scores"><strong>Z-Scores</strong></a></li>
 </ul>
 </li>
