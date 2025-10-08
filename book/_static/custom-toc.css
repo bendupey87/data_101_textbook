@@ -1,0 +1,135 @@
+﻿/* Clean TOC Design */
+.bd-sidebar-primary { display: none !important; }
+
+.bd-main {
+    display: flex !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.bd-content {
+    flex: 1 !important;
+    padding: 2rem 3rem !important;
+    margin: 0 !important;
+    max-width: calc(100% - 280px) !important;
+}
+
+/* More generous content padding on larger screens */
+@media (min-width: 1400px) {
+    .bd-content {
+        padding: 2rem 4rem !important;
+        max-width: calc(100% - 300px) !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .bd-content {
+        padding: 2rem 5rem !important;
+        max-width: calc(100% - 320px) !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bd-content {
+        padding: 2rem 2.5rem !important;
+        max-width: calc(100% - 260px) !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .bd-content {
+        padding: 1.5rem 2rem !important;
+        max-width: calc(100% - 240px) !important;
+    }
+}
+
+.bd-sidebar-secondary {
+    width: 280px !important;
+    background: #f8f9fa !important;
+    border-left: 1px solid #dee2e6 !important;
+    padding: 1rem !important;
+}
+
+/* Responsive TOC width based on screen size */
+@media (min-width: 1400px) {
+    .bd-sidebar-secondary {
+        width: 300px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .bd-sidebar-secondary {
+        width: 320px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bd-sidebar-secondary {
+        width: 260px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .bd-sidebar-secondary {
+        width: 240px !important;
+    }
+}
+
+.bd-toc nav a {
+    display: block !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0.25rem 0 !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    color: #495057 !important;
+}
+
+.bd-toc nav a:hover {
+    background-color: #e9ecef !important;
+}
+
+@media (max-width: 768px) {
+    .bd-sidebar-secondary { display: none !important; }
+    .bd-content { 
+        padding: 1rem !important; 
+        max-width: 100% !important;
+    }
+}
+
+/* Article content styling for better readability */
+.bd-article {
+    max-width: none !important;
+    margin: 0 auto !important;
+}
+
+/* On very large screens, contain content width for readability */
+@media (min-width: 1800px) {
+    .bd-article {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* Better typography scaling */
+@media (min-width: 1400px) {
+    .bd-article {
+        font-size: 1.05rem !important;
+        line-height: 1.7 !important;
+    }
+}
+
+/* Optimize for ultra-wide screens */
+@media (min-width: 2000px) {
+    .bd-sidebar-secondary {
+        width: 350px !important;
+    }
+    
+    .bd-content {
+        padding: 2rem 6rem !important;
+        max-width: calc(100% - 350px) !important;
+    }
+    
+    .bd-article {
+        max-width: 1400px !important;
+    }
+}
