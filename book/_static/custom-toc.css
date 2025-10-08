@@ -88,11 +88,60 @@
     background-color: #e9ecef !important;
 }
 
+/* Mobile-first responsive design */
 @media (max-width: 768px) {
-    .bd-sidebar-secondary { display: none !important; }
+    /* Hide the TOC sidebar completely on mobile */
+    .bd-sidebar-secondary { 
+        display: none !important; 
+    }
+    
+    /* Make main container stack vertically */
+    .bd-main {
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Full-width content on mobile */
     .bd-content { 
         padding: 1rem !important; 
         max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        flex: none !important;
+    }
+    
+    /* Mobile-optimized article */
+    .bd-article {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Better mobile typography */
+    body {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Mobile header styling */
+    h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    /* Mobile code blocks */
+    pre, code {
+        font-size: 14px !important;
+        overflow-x: auto !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Mobile images */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
     }
 }
 
@@ -131,5 +180,47 @@
     
     .bd-article {
         max-width: 1400px !important;
+    }
+}
+
+/* Mobile navigation button */
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+        background: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 18px !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .mobile-nav-toggle:hover {
+        background: #0056b3 !important;
+    }
+}
+
+/* Tablet optimization */
+@media (max-width: 992px) and (min-width: 769px) {
+    .bd-main {
+        flex-direction: row !important;
+    }
+    
+    .bd-content {
+        padding: 1.5rem !important;
+    }
+    
+    .bd-sidebar-secondary {
+        width: 240px !important;
+        min-width: 240px !important;
     }
 }
