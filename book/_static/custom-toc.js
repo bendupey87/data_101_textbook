@@ -1,4 +1,4 @@
-﻿// Simple mobile navigation for Data 101 textbook
+// Simple mobile navigation for Data 101 textbook
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Data 101 mobile navigation loaded');
     
