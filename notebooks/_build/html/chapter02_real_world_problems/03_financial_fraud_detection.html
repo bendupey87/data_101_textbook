@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. 2.4 Finance Problem – Fraud Detection &#8212; Data 101: Intro to Data Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic-fix.css?v=be1fc0ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/interactive-toc-styles.css?v=5c9fd6aa" />
+    <link rel="stylesheet" type="text/css" href="../_static/minimal-clean-theme.css?v=9587a7be" />
+    <link rel="stylesheet" type="text/css" href="../_static/retro-cs-theme.css?v=b485cecb" />
+    <link rel="stylesheet" type="text/css" href="../_static/simple-clean-toc.css?v=985e44b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/ultra-clean-theme.css?v=86b60449" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter02_real_world_problems/03_financial_fraud_detection';</script>
+    <script src="../_static/advanced-search.js?v=8c3d90ba"></script>
+    <script src="../_static/interactive-toc.js?v=dbc4d49f"></script>
+    <script src="../_static/simple-clean-toc.js?v=744241e5"></script>
+    <script src="../_static/ultra-clean-toc.js?v=8f02a4cc"></script>
+    <link rel="canonical" href="https://bendupey87.github.io/data_101_textbook/chapter02_real_world_problems/03_financial_fraud_detection.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. 2.2 Healthcare Problem – Predicting Readmission Risk" href="02_healthcare_readmissions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_introduction.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data 101: Intro to Data Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_table_of_contents.html">1. 📋 Table of Contents</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🏢 Real-World Applications</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_chapter_overview.html">Chapter 2: Data Analytics Solutions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_retail_demand_forecasting.html">1. 2.1: Retail Demand Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_healthcare_readmissions.html">2. 2.2: Healthcare Readmissions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3. 2.4: Financial Fraud Detection</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.4 Finance Problem – Fraud Detection</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-financial-crime-challenge">3.1. 💳 The Financial Crime Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-financial-fraud">3.1.1. Types of Financial Fraud:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-fraud-detection-is-extremely-difficult">3.1.2. Why Fraud Detection is Extremely Difficult:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-rules-based-vs-ai-approach">3.1.3. Traditional Rules-Based vs. AI Approach:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-in-fraud-detection">3.2. 🤖 Machine Learning in Fraud Detection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-features-used">3.2.1. Key Data Features Used:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">3.2.2. Model Architecture:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-impact-metrics">3.2.3. Business Impact Metrics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-in-model-performance">3.2.4. Challenges in Model Performance:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-4-fraud-detection-risk-score-distribution">3.3. 📊 Figure 2.4: Fraud Detection Risk Score Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-fraud-detection-insights">3.4. 🔍 Key Fraud Detection Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-distribution-pattern">3.4.1. The Distribution Pattern:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-thresholds">3.4.2. Decision Thresholds:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-approach-works">3.4.3. Why This Approach Works:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-implementation">3.5. 💡 Real-World Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#major-financial-institutions">3.5.1. Major Financial Institutions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-techniques">3.5.2. Advanced Techniques:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-metrics">3.5.3. Success Metrics:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="finance-problem-fraud-detection">
+<h1><span class="section-number">3. </span>2.4 Finance Problem – Fraud Detection<a class="headerlink" href="#finance-problem-fraud-detection" title="Link to this heading">#</a></h1>
+<section id="the-financial-crime-challenge">
+<h2><span class="section-number">3.1. </span>💳 The Financial Crime Challenge<a class="headerlink" href="#the-financial-crime-challenge" title="Link to this heading">#</a></h2>
+<p>Financial fraud represents one of the most costly and sophisticated threats to the global economy, with <strong>$5.1 trillion lost annually</strong> to fraudulent activities worldwide. The challenge is detecting fraudulent patterns among billions of legitimate transactions in real-time.</p>
+<section id="types-of-financial-fraud">
+<h3><span class="section-number">3.1.1. </span>Types of Financial Fraud:<a class="headerlink" href="#types-of-financial-fraud" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Credit card fraud</strong>: Stolen cards, account takeovers, synthetic identities</p></li>
+<li><p><strong>Wire transfer fraud</strong>: Business email compromise, authorized push payment fraud</p></li>
+<li><p><strong>Identity theft</strong>: Opening accounts with stolen personal information</p></li>
+<li><p><strong>Money laundering</strong>: Converting illegal proceeds into legitimate-appearing assets</p></li>
+</ul>
+</section>
+<section id="why-fraud-detection-is-extremely-difficult">
+<h3><span class="section-number">3.1.2. </span>Why Fraud Detection is Extremely Difficult:<a class="headerlink" href="#why-fraud-detection-is-extremely-difficult" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Needle in haystack</strong>: Less than 0.1% of transactions are fraudulent</p></li>
+<li><p><strong>Evolving tactics</strong>: Fraudsters constantly adapt to avoid detection systems</p></li>
+<li><p><strong>Speed requirement</strong>: Must detect fraud in milliseconds during transaction processing</p></li>
+<li><p><strong>False positive cost</strong>: Blocking legitimate transactions frustrates customers and costs sales</p></li>
+</ul>
+</section>
+<section id="traditional-rules-based-vs-ai-approach">
+<h3><span class="section-number">3.1.3. </span>Traditional Rules-Based vs. AI Approach:<a class="headerlink" href="#traditional-rules-based-vs-ai-approach" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Rules-based</strong>: “Flag transactions over $500 from new countries” - rigid, easy to circumvent</p></li>
+<li><p><strong>AI-based</strong>: Machine learning identifies subtle patterns across hundreds of variables simultaneously</p></li>
+</ul>
+</section>
+</section>
+<section id="machine-learning-in-fraud-detection">
+<h2><span class="section-number">3.2. </span>🤖 Machine Learning in Fraud Detection<a class="headerlink" href="#machine-learning-in-fraud-detection" title="Link to this heading">#</a></h2>
+<p>Modern fraud detection systems use <strong>ensemble models</strong> that combine multiple algorithms to create a single fraud probability score for each transaction. This score drives automated decisions and investigator prioritization.</p>
+<section id="key-data-features-used">
+<h3><span class="section-number">3.2.1. </span>Key Data Features Used:<a class="headerlink" href="#key-data-features-used" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Transaction patterns</strong>: Amount, time, location, merchant type, frequency</p></li>
+<li><p><strong>Historical behavior</strong>: Customer’s typical spending patterns, geographic locations</p></li>
+<li><p><strong>Device intelligence</strong>: Browser fingerprint, mobile device ID, IP address reputation</p></li>
+<li><p><strong>Network analysis</strong>: Connections between accounts, shared devices, linked addresses</p></li>
+</ul>
+</section>
+<section id="model-architecture">
+<h3><span class="section-number">3.2.2. </span>Model Architecture:<a class="headerlink" href="#model-architecture" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Supervised learning</strong>: Trained on labeled fraud/legitimate transactions</p></li>
+<li><p><strong>Unsupervised learning</strong>: Detects unusual patterns without prior fraud examples</p></li>
+<li><p><strong>Deep learning</strong>: Neural networks identify complex, non-linear fraud patterns</p></li>
+<li><p><strong>Real-time scoring</strong>: Models must make decisions in &lt;100 milliseconds</p></li>
+</ul>
+</section>
+<section id="business-impact-metrics">
+<h3><span class="section-number">3.2.3. </span>Business Impact Metrics:<a class="headerlink" href="#business-impact-metrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fraud detection rate</strong>: Catching 85-95% of fraudulent transactions</p></li>
+<li><p><strong>False positive rate</strong>: Keeping legitimate transaction blocks under 1-2%</p></li>
+<li><p><strong>Financial impact</strong>: Preventing $10-50 million in losses per year for large banks</p></li>
+<li><p><strong>Customer experience</strong>: Seamless processing for 99%+ of legitimate customers</p></li>
+</ul>
+</section>
+<section id="challenges-in-model-performance">
+<h3><span class="section-number">3.2.4. </span>Challenges in Model Performance:<a class="headerlink" href="#challenges-in-model-performance" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Class imbalance</strong>: 999 legitimate transactions for every 1 fraudulent one</p></li>
+<li><p><strong>Concept drift</strong>: Fraud patterns change over time, requiring model retraining</p></li>
+<li><p><strong>Adversarial attacks</strong>: Fraudsters actively try to fool the AI models</p></li>
+<li><p><strong>Regulatory compliance</strong>: Must be explainable for regulatory audits</p></li>
+</ul>
+</section>
+</section>
+<section id="figure-2-4-fraud-detection-risk-score-distribution">
+<h2><span class="section-number">3.3. </span>📊 Figure 2.4: Fraud Detection Risk Score Distribution<a class="headerlink" href="#figure-2-4-fraud-detection-risk-score-distribution" title="Link to this heading">#</a></h2>
+<p>This histogram illustrates the distribution of fraud risk scores across all financial transactions, demonstrating how machine learning models can effectively separate legitimate transactions (clustered near 0.0 risk score) from potentially fraudulent ones (higher risk scores). The clear separation between low-risk and high-risk transactions enables automated decision-making and helps investigators focus their efforts on the most suspicious activities.</p>
+<p><strong>Don’t worry about the code — just focus on the visual insight.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Set random seed for consistent educational results</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># Simulate realistic fraud score distribution</span>
+<span class="c1"># In real fraud detection, most transactions have low fraud scores (legitimate)</span>
+<span class="c1"># Only a small percentage have high fraud scores (suspicious/fraudulent)</span>
+
+<span class="c1"># Generate legitimate transactions (90% of total) - low fraud scores</span>
+<span class="n">legitimate_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>  <span class="c1"># Mean=0.15, std=0.08</span>
+<span class="n">legitimate_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">legitimate_scores</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="c1"># Keep scores between 0-1</span>
+
+<span class="c1"># Generate fraudulent transactions (10% of total) - high fraud scores  </span>
+<span class="n">fraudulent_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c1"># Mean=0.75, std=0.12</span>
+<span class="n">fraudulent_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">fraudulent_scores</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>     <span class="c1"># Keep scores between 0-1</span>
+
+<span class="c1"># Combine all scores to simulate real-world transaction mix</span>
+<span class="n">all_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">legitimate_scores</span><span class="p">,</span> <span class="n">fraudulent_scores</span><span class="p">])</span>
+
+<span class="c1"># Create the histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot histogram with detailed formatting</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">all_scores</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> 
+                                <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+                                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Color code the bars: green for low-risk, yellow for medium, red for high-risk</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">patches</span><span class="p">):</span>
+    <span class="n">bin_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Calculate center of each bin</span>
+    <span class="k">if</span> <span class="n">bin_center</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">:</span>
+        <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>     <span class="c1"># Low risk - green</span>
+    <span class="k">elif</span> <span class="n">bin_center</span> <span class="o">&lt;</span> <span class="mf">0.6</span><span class="p">:</span>
+        <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">)</span>           <span class="c1"># Medium risk - yellow  </span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">)</span>     <span class="c1"># High risk - red</span>
+
+<span class="c1"># Add vertical lines to show decision thresholds</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Review Threshold (30%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Block Threshold (60%)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Chart formatting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fraud Risk Score Distribution Across All Transactions&quot;</span><span class="p">,</span> 
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fraud Risk Score (0 = Definitely Legitimate, 1 = Definitely Fraudulent)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Transactions&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add text annotations explaining the interpretation</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span> 
+         <span class="sa">f</span><span class="s1">&#39;Legitimate Transactions</span><span class="se">\n</span><span class="s1">(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">legitimate_scores</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> total)</span><span class="se">\n</span><span class="s1">Low Risk Scores&#39;</span><span class="p">,</span> 
+         <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightgreen&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.82</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span><span class="o">*</span><span class="mf">0.6</span><span class="p">,</span> 
+         <span class="sa">f</span><span class="s1">&#39;Suspicious Transactions</span><span class="se">\n</span><span class="s1">(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">fraudulent_scores</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> total)</span><span class="se">\n</span><span class="s1">High Risk Scores&#39;</span><span class="p">,</span> 
+         <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="c1"># Add grid for easier reading</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set x-axis to show full 0-1 range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Calculate and display business metrics</span>
+<span class="n">total_transactions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_scores</span><span class="p">)</span>
+<span class="n">low_risk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">all_scores</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">medium_risk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">all_scores</span> <span class="o">&gt;=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">all_scores</span> <span class="o">&lt;</span> <span class="mf">0.6</span><span class="p">))</span>
+<span class="n">high_risk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">all_scores</span> <span class="o">&gt;=</span> <span class="mf">0.6</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== FRAUD DETECTION SYSTEM SUMMARY ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Transactions Analyzed: </span><span class="si">{</span><span class="n">total_transactions</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Low Risk (Auto-Approve): </span><span class="si">{</span><span class="n">low_risk</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">low_risk</span><span class="o">/</span><span class="n">total_transactions</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Medium Risk (Manual Review): </span><span class="si">{</span><span class="n">medium_risk</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">medium_risk</span><span class="o">/</span><span class="n">total_transactions</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;High Risk (Auto-Block): </span><span class="si">{</span><span class="n">high_risk</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">high_risk</span><span class="o">/</span><span class="n">total_transactions</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BUSINESS IMPACT:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;• Transactions requiring human review: </span><span class="si">{</span><span class="n">medium_risk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">high_risk</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;• Estimated fraud prevented: $</span><span class="si">{</span><span class="n">high_risk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">850</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> (assuming $850 avg fraud amount)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;• Legitimate customers unaffected: </span><span class="si">{</span><span class="n">low_risk</span><span class="o">/</span><span class="n">total_transactions</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-fraud-detection-insights">
+<h2><span class="section-number">3.4. </span>🔍 Key Fraud Detection Insights<a class="headerlink" href="#key-fraud-detection-insights" title="Link to this heading">#</a></h2>
+<section id="the-distribution-pattern">
+<h3><span class="section-number">3.4.1. </span>The Distribution Pattern:<a class="headerlink" href="#the-distribution-pattern" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Most transactions are legitimate</strong> (green bars on left): The vast majority cluster around low risk scores (0.0-0.3)</p></li>
+<li><p><strong>Clear separation exists</strong> (gap in middle): Few transactions fall in the medium-risk range, creating natural decision boundaries</p></li>
+<li><p><strong>Fraudulent transactions stand out</strong> (red bars on right): Suspicious activities generate distinctly higher risk scores</p></li>
+</ol>
+</section>
+<section id="decision-thresholds">
+<h3><span class="section-number">3.4.2. </span>Decision Thresholds:<a class="headerlink" href="#decision-thresholds" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Auto-Approve (&lt;30%)</strong>: Process immediately without human intervention</p></li>
+<li><p><strong>Manual Review (30-60%)</strong>: Flag for fraud analyst investigation</p></li>
+<li><p><strong>Auto-Block (&gt;60%)</strong>: Immediately decline and alert customer</p></li>
+</ul>
+</section>
+<section id="why-this-approach-works">
+<h3><span class="section-number">3.4.3. </span>Why This Approach Works:<a class="headerlink" href="#why-this-approach-works" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Scalability</strong>: Automatically processes 85%+ of transactions</p></li>
+<li><p><strong>Resource optimization</strong>: Focuses human expertise on ambiguous cases</p></li>
+<li><p><strong>Customer experience</strong>: Minimizes false positive disruptions</p></li>
+<li><p><strong>Cost effectiveness</strong>: Prevents major losses while controlling operational costs</p></li>
+</ol>
+</section>
+</section>
+<section id="real-world-implementation">
+<h2><span class="section-number">3.5. </span>💡 Real-World Implementation<a class="headerlink" href="#real-world-implementation" title="Link to this heading">#</a></h2>
+<section id="major-financial-institutions">
+<h3><span class="section-number">3.5.1. </span>Major Financial Institutions:<a class="headerlink" href="#major-financial-institutions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>JPMorgan Chase</strong>: Processes 5+ billion transactions annually using ML models</p></li>
+<li><p><strong>Visa</strong>: Real-time fraud scoring for 150+ billion transactions per year</p></li>
+<li><p><strong>PayPal</strong>: Uses 200+ risk variables to score every transaction in &lt;100ms</p></li>
+</ul>
+</section>
+<section id="advanced-techniques">
+<h3><span class="section-number">3.5.2. </span>Advanced Techniques:<a class="headerlink" href="#advanced-techniques" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Graph neural networks</strong>: Detect fraud rings and synthetic identity schemes</p></li>
+<li><p><strong>Behavioral biometrics</strong>: How users type, swipe, and interact with apps</p></li>
+<li><p><strong>Federated learning</strong>: Share fraud patterns across institutions without sharing data</p></li>
+<li><p><strong>Adversarial training</strong>: Continuously adapt to fraudster counter-measures</p></li>
+</ul>
+</section>
+<section id="success-metrics">
+<h3><span class="section-number">3.5.3. </span>Success Metrics:<a class="headerlink" href="#success-metrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Detection rate</strong>: 90%+ of fraud caught</p></li>
+<li><p><strong>False positive rate</strong>: &lt;2% of legitimate transactions blocked</p></li>
+<li><p><strong>Processing speed</strong>: &lt;50ms average decision time</p></li>
+<li><p><strong>Cost savings</strong>: $10-50M annually for major banks</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter02_real_world_problems"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_healthcare_readmissions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>2.2 Healthcare Problem – Predicting Readmission Risk</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-financial-crime-challenge">3.1. 💳 The Financial Crime Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-financial-fraud">3.1.1. Types of Financial Fraud:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-fraud-detection-is-extremely-difficult">3.1.2. Why Fraud Detection is Extremely Difficult:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-rules-based-vs-ai-approach">3.1.3. Traditional Rules-Based vs. AI Approach:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-in-fraud-detection">3.2. 🤖 Machine Learning in Fraud Detection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-features-used">3.2.1. Key Data Features Used:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-architecture">3.2.2. Model Architecture:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-impact-metrics">3.2.3. Business Impact Metrics:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-in-model-performance">3.2.4. Challenges in Model Performance:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-4-fraud-detection-risk-score-distribution">3.3. 📊 Figure 2.4: Fraud Detection Risk Score Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-fraud-detection-insights">3.4. 🔍 Key Fraud Detection Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-distribution-pattern">3.4.1. The Distribution Pattern:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-thresholds">3.4.2. Decision Thresholds:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-approach-works">3.4.3. Why This Approach Works:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-implementation">3.5. 💡 Real-World Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#major-financial-institutions">3.5.1. Major Financial Institutions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-techniques">3.5.2. Advanced Techniques:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-metrics">3.5.3. Success Metrics:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben DuPey
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

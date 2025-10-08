@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. 2.2 Healthcare Problem – Predicting Readmission Risk &#8212; Data 101: Intro to Data Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic-fix.css?v=be1fc0ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/interactive-toc-styles.css?v=5c9fd6aa" />
+    <link rel="stylesheet" type="text/css" href="../_static/minimal-clean-theme.css?v=9587a7be" />
+    <link rel="stylesheet" type="text/css" href="../_static/retro-cs-theme.css?v=b485cecb" />
+    <link rel="stylesheet" type="text/css" href="../_static/simple-clean-toc.css?v=985e44b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/ultra-clean-theme.css?v=86b60449" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter02_real_world_problems/02_healthcare_readmissions';</script>
+    <script src="../_static/advanced-search.js?v=8c3d90ba"></script>
+    <script src="../_static/interactive-toc.js?v=dbc4d49f"></script>
+    <script src="../_static/simple-clean-toc.js?v=744241e5"></script>
+    <script src="../_static/ultra-clean-toc.js?v=8f02a4cc"></script>
+    <link rel="canonical" href="https://bendupey87.github.io/data_101_textbook/chapter02_real_world_problems/02_healthcare_readmissions.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. 2.4 Finance Problem – Fraud Detection" href="03_financial_fraud_detection.html" />
+    <link rel="prev" title="1. 2.1 Retail Problem – Predicting Product Demand" href="01_retail_demand_forecasting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_introduction.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data 101: Intro to Data Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_table_of_contents.html">1. 📋 Table of Contents</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🏢 Real-World Applications</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_chapter_overview.html">Chapter 2: Data Analytics Solutions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_retail_demand_forecasting.html">1. 2.1: Retail Demand Forecasting</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2. 2.2: Healthcare Readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_financial_fraud_detection.html">3. 2.4: Financial Fraud Detection</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.2 Healthcare Problem – Predicting Readmission Risk</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-healthcare-challenge">2.1. 🏥 The Healthcare Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-readmissions-matter">2.1.1. Why Readmissions Matter:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-risk-factors">2.1.2. Common Risk Factors:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-vs-predictive-approach">2.1.3. Traditional vs. Predictive Approach:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-analytics-in-healthcare">2.2. 🎯 Predictive Analytics in Healthcare</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-inputs">2.2.1. Key Data Inputs:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-strategies-by-risk-level">2.2.2. Intervention Strategies by Risk Level:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurable-outcomes">2.2.3. Measurable Outcomes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-metrics">2.2.4. Model Performance Metrics:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-2-healthcare-readmission-risk-analysis">2.3. 📊 Figure 2.2: Healthcare Readmission Risk Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-clinical-insights">2.4. 🔍 Key Clinical Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-heart-failure-has-the-highest-risk-40">2.4.1. Why Heart Failure Has the Highest Risk (40%):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copd-chronic-obstructive-pulmonary-disease-35-risk">2.4.2. COPD (Chronic Obstructive Pulmonary Disease) - 35% Risk:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diabetes-25-risk">2.4.3. Diabetes - 25% Risk:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-implementation">2.5. 💡 Real-World Implementation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="healthcare-problem-predicting-readmission-risk">
+<h1><span class="section-number">2. </span>2.2 Healthcare Problem – Predicting Readmission Risk<a class="headerlink" href="#healthcare-problem-predicting-readmission-risk" title="Link to this heading">#</a></h1>
+<section id="the-healthcare-challenge">
+<h2><span class="section-number">2.1. </span>🏥 The Healthcare Challenge<a class="headerlink" href="#the-healthcare-challenge" title="Link to this heading">#</a></h2>
+<p>Hospital readmissions within 30 days are a critical healthcare quality metric with enormous financial and human costs. In the US healthcare system, approximately <strong>20% of Medicare patients</strong> are readmitted within 30 days, costing the system over <strong>$41 billion annually</strong>.</p>
+<section id="why-readmissions-matter">
+<h3><span class="section-number">2.1.1. </span>Why Readmissions Matter:<a class="headerlink" href="#why-readmissions-matter" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Patient outcomes</strong>: Readmissions often indicate incomplete treatment or complications</p></li>
+<li><p><strong>Financial penalties</strong>: Medicare reduces payments to hospitals with high readmission rates</p></li>
+<li><p><strong>Resource strain</strong>: Emergency readmissions disrupt planned care schedules</p></li>
+<li><p><strong>Quality metrics</strong>: Readmission rates are publicly reported as quality indicators</p></li>
+</ul>
+</section>
+<section id="common-risk-factors">
+<h3><span class="section-number">2.1.2. </span>Common Risk Factors:<a class="headerlink" href="#common-risk-factors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Medical complexity</strong>: Patients with multiple chronic conditions (diabetes + heart failure)</p></li>
+<li><p><strong>Social determinants</strong>: Lack of transportation, family support, or health literacy</p></li>
+<li><p><strong>Care transitions</strong>: Poor communication between hospital and outpatient providers</p></li>
+<li><p><strong>Medication adherence</strong>: Complex drug regimens that patients struggle to follow</p></li>
+</ul>
+</section>
+<section id="traditional-vs-predictive-approach">
+<h3><span class="section-number">2.1.3. </span>Traditional vs. Predictive Approach:<a class="headerlink" href="#traditional-vs-predictive-approach" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Traditional</strong>: Discharge all patients with standard follow-up instructions</p></li>
+<li><p><strong>Predictive</strong>: Use data to identify high-risk patients for intensive intervention programs</p></li>
+</ul>
+</section>
+</section>
+<section id="predictive-analytics-in-healthcare">
+<h2><span class="section-number">2.2. </span>🎯 Predictive Analytics in Healthcare<a class="headerlink" href="#predictive-analytics-in-healthcare" title="Link to this heading">#</a></h2>
+<p>Risk stratification models analyze hundreds of variables to assign each patient a <strong>readmission probability score</strong>. This enables targeted interventions where they’ll have the greatest impact.</p>
+<section id="key-data-inputs">
+<h3><span class="section-number">2.2.1. </span>Key Data Inputs:<a class="headerlink" href="#key-data-inputs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Clinical data</strong>: Diagnosis codes, lab results, vital signs, length of stay</p></li>
+<li><p><strong>Historical patterns</strong>: Previous admissions, medication compliance, outpatient visits</p></li>
+<li><p><strong>Social factors</strong>: Insurance type, distance from hospital, family support systems</p></li>
+<li><p><strong>Discharge planning</strong>: Medications prescribed, follow-up appointments scheduled</p></li>
+</ul>
+</section>
+<section id="intervention-strategies-by-risk-level">
+<h3><span class="section-number">2.2.2. </span>Intervention Strategies by Risk Level:<a class="headerlink" href="#intervention-strategies-by-risk-level" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>High risk (&gt;40% probability)</strong>: Dedicated case manager, home health visits, daily check-ins</p></li>
+<li><p><strong>Medium risk (20-40%)</strong>: Discharge planning specialist, 72-hour follow-up call</p></li>
+<li><p><strong>Low risk (&lt;20%)</strong>: Standard discharge instructions, routine follow-up</p></li>
+</ul>
+</section>
+<section id="measurable-outcomes">
+<h3><span class="section-number">2.2.3. </span>Measurable Outcomes:<a class="headerlink" href="#measurable-outcomes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Clinical impact</strong>: 15-30% reduction in 30-day readmissions</p></li>
+<li><p><strong>Cost savings</strong>: $3,000-8,000 saved per prevented readmission</p></li>
+<li><p><strong>Patient satisfaction</strong>: Improved experience through proactive support</p></li>
+<li><p><strong>Staff efficiency</strong>: Focus intensive resources on patients who need them most</p></li>
+</ul>
+</section>
+<section id="model-performance-metrics">
+<h3><span class="section-number">2.2.4. </span>Model Performance Metrics:<a class="headerlink" href="#model-performance-metrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Sensitivity</strong>: Correctly identifying 80%+ of patients who will be readmitted</p></li>
+<li><p><strong>Specificity</strong>: Avoiding false alarms that waste intervention resources</p></li>
+<li><p><strong>Positive predictive value</strong>: When the model says “high risk,” it’s right 60%+ of the time</p></li>
+</ul>
+</section>
+</section>
+<section id="figure-2-2-healthcare-readmission-risk-analysis">
+<h2><span class="section-number">2.3. </span>📊 Figure 2.2: Healthcare Readmission Risk Analysis<a class="headerlink" href="#figure-2-2-healthcare-readmission-risk-analysis" title="Link to this heading">#</a></h2>
+<p>This bar chart simulates readmission risk across different medical conditions, demonstrating how predictive analytics can identify high-risk patients who need intensive intervention programs. The visualization shows that heart failure patients have the highest readmission probability at 40%, followed by COPD at 35%, making them priority targets for discharge planning and follow-up care.</p>
+<p><strong>Don’t worry about the code — just focus on the visual insight.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import visualization library</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Define medical conditions commonly associated with readmissions</span>
+<span class="c1"># These are based on real healthcare data showing highest-risk conditions</span>
+<span class="n">conditions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Diabetes&quot;</span><span class="p">,</span> <span class="s2">&quot;Heart Failure&quot;</span><span class="p">,</span> <span class="s2">&quot;COPD&quot;</span><span class="p">,</span> <span class="s2">&quot;Hypertension&quot;</span><span class="p">]</span>
+
+<span class="c1"># Readmission risk probabilities based on healthcare research</span>
+<span class="c1"># These percentages reflect actual patterns from Medicare data</span>
+<span class="n">risk</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span>    <span class="c1"># Diabetes: 25% readmission rate due to blood sugar complications</span>
+        <span class="mf">0.40</span><span class="p">,</span>    <span class="c1"># Heart Failure: 40% rate - highest risk due to fluid management issues  </span>
+        <span class="mf">0.35</span><span class="p">,</span>    <span class="c1"># COPD (lung disease): 35% rate - respiratory complications common</span>
+        <span class="mf">0.20</span><span class="p">]</span>    <span class="c1"># Hypertension: 20% rate - generally more manageable condition</span>
+
+<span class="c1"># Create a bar chart to visualize risk levels</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">conditions</span><span class="p">,</span> <span class="n">risk</span><span class="p">,</span> 
+               <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#FF6B6B&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF4757&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF3838&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF6B9D&#39;</span><span class="p">],</span>  <span class="c1"># Red gradient - higher risk = darker red</span>
+               <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>    <span class="c1"># Black borders for clarity</span>
+               <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>        <span class="c1"># Border thickness</span>
+
+<span class="c1"># Add percentage labels on top of each bar for precise reading</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bar</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bars</span><span class="p">):</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>  <span class="c1"># Get the bar height (risk probability)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># Center horizontally on bar</span>
+             <span class="n">height</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span>                     <span class="c1"># Position slightly above bar</span>
+             <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">risk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.0%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>                  <span class="c1"># Format as percentage (e.g., &quot;25%&quot;)</span>
+             <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>                       <span class="c1"># Center-align text</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>                       <span class="c1"># Text size</span>
+             <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>                 <span class="c1"># Bold for emphasis</span>
+
+<span class="c1"># Chart formatting and labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;30-Day Hospital Readmission Risk by Medical Condition&quot;</span><span class="p">,</span> 
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Readmission Probability&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Primary Medical Condition&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Set y-axis to show 0-50% range for better visual scaling</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Add horizontal grid lines to help read values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Rotate x-axis labels for better readability if needed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Add a subtle background color to distinguish the chart area</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#F8F9FA&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Adjust spacing to prevent label cutoff</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># CLINICAL INSIGHT: Heart failure has the highest readmission risk because:</span>
+<span class="c1"># 1. Fluid balance is difficult to manage at home</span>
+<span class="c1"># 2. Symptoms can deteriorate rapidly</span>
+<span class="c1"># 3. Multiple medications with complex interactions</span>
+<span class="c1"># 4. Often occurs in elderly patients with multiple conditions</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-clinical-insights">
+<h2><span class="section-number">2.4. </span>🔍 Key Clinical Insights<a class="headerlink" href="#key-clinical-insights" title="Link to this heading">#</a></h2>
+<section id="why-heart-failure-has-the-highest-risk-40">
+<h3><span class="section-number">2.4.1. </span>Why Heart Failure Has the Highest Risk (40%):<a class="headerlink" href="#why-heart-failure-has-the-highest-risk-40" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complex medication management</strong>: Patients must balance multiple drugs (diuretics, ACE inhibitors, beta-blockers)</p></li>
+<li><p><strong>Symptom monitoring</strong>: Daily weight checks and recognizing early warning signs require health literacy</p></li>
+<li><p><strong>Rapid deterioration</strong>: Fluid buildup can progress quickly from manageable to life-threatening</p></li>
+<li><p><strong>Comorbidity cascade</strong>: Often occurs with diabetes, kidney disease, and other conditions</p></li>
+</ol>
+</section>
+<section id="copd-chronic-obstructive-pulmonary-disease-35-risk">
+<h3><span class="section-number">2.4.2. </span>COPD (Chronic Obstructive Pulmonary Disease) - 35% Risk:<a class="headerlink" href="#copd-chronic-obstructive-pulmonary-disease-35-risk" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Environmental triggers</strong>: Air quality, weather changes, allergens can cause flare-ups</p></li>
+<li><p><strong>Medication adherence</strong>: Inhalers, oxygen therapy, and breathing treatments require technique</p></li>
+<li><p><strong>Infection susceptibility</strong>: Respiratory infections can rapidly worsen breathing problems</p></li>
+</ul>
+</section>
+<section id="diabetes-25-risk">
+<h3><span class="section-number">2.4.3. </span>Diabetes - 25% Risk:<a class="headerlink" href="#diabetes-25-risk" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Blood sugar management</strong>: Complex interplay of diet, exercise, medication, and stress</p></li>
+<li><p><strong>Wound healing</strong>: Slower recovery can lead to infections and complications</p></li>
+<li><p><strong>Multiple organ effects</strong>: Can affect kidneys, eyes, heart, and circulation</p></li>
+</ul>
+</section>
+</section>
+<section id="real-world-implementation">
+<h2><span class="section-number">2.5. </span>💡 Real-World Implementation<a class="headerlink" href="#real-world-implementation" title="Link to this heading">#</a></h2>
+<p>Leading hospitals use predictive models that:</p>
+<ul class="simple">
+<li><p><strong>Score every patient</strong> at discharge with a readmission probability</p></li>
+<li><p><strong>Trigger interventions</strong> automatically based on risk thresholds</p></li>
+<li><p><strong>Track outcomes</strong> to continuously improve model accuracy</p></li>
+<li><p><strong>Integrate with EMRs</strong> to provide real-time decision support</p></li>
+</ul>
+<p><strong>Success Stories</strong>:</p>
+<ul class="simple">
+<li><p><strong>Boston Medical Center</strong>: 20% reduction in readmissions using predictive analytics</p></li>
+<li><p><strong>Geisinger Health</strong>: $2.7M annual savings from targeted interventions</p></li>
+<li><p><strong>Kaiser Permanente</strong>: Improved patient satisfaction scores through proactive care</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter02_real_world_problems"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_retail_demand_forecasting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>2.1 Retail Problem – Predicting Product Demand</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_financial_fraud_detection.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>2.4 Finance Problem – Fraud Detection</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-healthcare-challenge">2.1. 🏥 The Healthcare Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-readmissions-matter">2.1.1. Why Readmissions Matter:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-risk-factors">2.1.2. Common Risk Factors:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traditional-vs-predictive-approach">2.1.3. Traditional vs. Predictive Approach:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-analytics-in-healthcare">2.2. 🎯 Predictive Analytics in Healthcare</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-inputs">2.2.1. Key Data Inputs:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervention-strategies-by-risk-level">2.2.2. Intervention Strategies by Risk Level:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurable-outcomes">2.2.3. Measurable Outcomes:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-metrics">2.2.4. Model Performance Metrics:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-2-healthcare-readmission-risk-analysis">2.3. 📊 Figure 2.2: Healthcare Readmission Risk Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-clinical-insights">2.4. 🔍 Key Clinical Insights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-heart-failure-has-the-highest-risk-40">2.4.1. Why Heart Failure Has the Highest Risk (40%):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copd-chronic-obstructive-pulmonary-disease-35-risk">2.4.2. COPD (Chronic Obstructive Pulmonary Disease) - 35% Risk:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diabetes-25-risk">2.4.3. Diabetes - 25% Risk:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-implementation">2.5. 💡 Real-World Implementation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben DuPey
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

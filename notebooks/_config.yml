@@ -1,0 +1,93 @@
+title: "Data 101: Intro to Data Analytics"
+author: "Ben DuPey"
+logo: "_static/logo.png"
+copyright: "2025"
+
+# Build settings
+only_build_toc_files: true
+
+# Execution settings
+execute:
+  execute_notebooks: 'off'
+  timeout: 300
+  run_in_temp: false
+
+# Parse and render settings
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+
+# HTML-specific options
+html:
+  favicon: "_static/favicon.ico"
+  use_edit_page_button: false
+  use_repository_button: false
+  use_issues_button: false
+  use_download_button: false
+  baseurl: https://bendupey87.github.io/data_101_textbook
+  home_page_in_navbar: false
+  navbar_number_sections: false
+  show_navbar_depth: 2
+  collapse_navigation: true
+  navigation_depth: 3
+  use_multitoc_numbering: false
+  show_prev_next: false
+
+# Theme options
+sphinx:
+  config:
+    html_theme: sphinx_book_theme
+    html_theme_options:
+      # Simple, working configuration
+      use_repository_button: false
+      use_edit_page_button: false
+      use_issues_button: false
+      use_download_button: false
+
+# Launch buttons
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: https://mybinder.org
+  colab_url: https://colab.research.google.com
+  thebe: true
+
+# Advanced features
+advanced:
+  extra_extensions:
+    - sphinx_design
+    - sphinx_external_toc
+    - sphinx_multitoc_numbering
+    - sphinx_copybutton
+    - sphinx_togglebutton
+    - sphinx_tabs.tabs
+
+# Analytics
+analytics:
+  google_analytics_id: # Add your GA4 ID here when ready
+  plausible_analytics_domain: # Alternative privacy-focused analytics
+
+# Repository settings
+repository:
+  url: https://github.com/bendupey87/data_101_textbook
+  path_to_book: notebooks
+  branch: copilot_tryout
+
+# Comments
+comments:
+  hypothesis: false
+  utterances:
+    repo: "bendupey87/data_101_textbook"
+
+# Bibtex bibliography
+bibtex_bibfiles:
+  - references.bib

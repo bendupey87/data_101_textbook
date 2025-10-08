@@ -1,0 +1,73 @@
+format: jb-book
+root: 00_introduction
+defaults:
+  numbered: true
+
+parts:
+  - caption: "Getting Started"
+    chapters:
+      - file: 01_table_of_contents
+
+  - caption: "📈 Part 1: Introduction to Data Analytics"
+    numbered: true
+    chapters:
+      - file: chapter01_introduction/01_what_is_data
+        title: "Chapter 1: Introduction to Data Analysis"
+        sections:
+          - file: chapter01_introduction/02_data_collection
+            title: "1.3: Collecting Data"
+          - file: chapter01_introduction/03_data_cleaning
+            title: "1.4: Cleaning Data"
+          - file: chapter01_introduction/04_exploratory_analysis
+            title: "1.5: Types of Analysis"
+          - file: chapter01_introduction/05_crisp_dm
+            title: "1.7: The CRISP-DM Framework"
+          - file: chapter01_introduction/06_chapter_summary
+            title: "1.11: Summary"
+
+  - caption: "🏢 Real-World Applications"
+    numbered: true
+    chapters:
+      - file: chapter02_real_world_problems/00_chapter_overview
+        title: "Chapter 2: Data Analytics Solutions"
+        sections:
+          - file: chapter02_real_world_problems/01_retail_demand_forecasting
+            title: "2.1: Retail Demand Forecasting"
+          - file: chapter02_real_world_problems/02_healthcare_readmissions
+            title: "2.2: Healthcare Readmissions"
+          - file: chapter02_real_world_problems/03_financial_fraud_detection
+            title: "2.4: Financial Fraud Detection"
+
+  - caption: "🔧 Part 2: Basic Tools & Fundamentals"
+    numbered: true
+    chapters:
+      - file: chapter03_python_basics/01_import_statements
+        title: "Chapter 3: Basic Data Manipulation"
+        sections:
+          - file: chapter03_python_basics/02_python_fundamentals
+            title: "3.2: Python Fundamentals"
+          - file: chapter03_python_basics/03_data_structures
+            title: "3.3: Data Structures"
+          - file: chapter03_python_basics/04_pandas_basics
+            title: "3.4: Pandas Basics"
+          - file: chapter03_python_basics/05_data_manipulation
+            title: "3.5: Data Manipulation"
+
+  - caption: "📊 Part 3: Advanced Analysis"
+    numbered: true
+    chapters:
+      - file: chapter04_descriptive_stats/01_measures_central_tendency
+        title: "Chapter 4: Descriptive Statistics"
+      - file: chapter05_clustering/01_similarity_measures
+        title: "Chapter 5: Clustering & Similarity"
+      - file: chapter06_modeling/01_linear_regression
+        title: "Chapter 6: Fitting Data to Models"
+
+  - caption: "🛠️ Resources & References"
+    chapters:
+      - file: appendix/datasets
+        title: "Data Sources"
+      - file: appendix/python_reference
+        title: "Python Quick Reference"
+      - file: appendix/troubleshooting
+        title: "Troubleshooting Guide"

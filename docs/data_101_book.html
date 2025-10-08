@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📊 Data 101: Intro to Data Analytics &#8212; Data 101</title>
+    <title>📊 Data 101: Intro to Data Analytics &#8212; 📊 Data 101: Intro to Data Analytics</title>
   
   
   
@@ -32,9 +32,10 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom-toc.css?v=370bbe5b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,6 +61,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'data_101_book';</script>
+    <script src="_static/custom-toc.js?v=4c9d5547"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -151,7 +153,7 @@
   
   
   
-    <p class="title logo__title">Data 101</p>
+    <p class="title logo__title">📊 Data 101: Intro to Data Analytics</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -207,54 +209,6 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/data_101_book.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -388,7 +342,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions-for-data-manipulation"><strong>3.3: Python Functions for Data Manipulation</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions"><strong>3.3.1: Built-in Functions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions"><strong>3.3.1: Built-in Functions</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summation-and-length"><strong>Summation and Length</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum"><strong>3.3.2: Minimum and Maximum</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#average-using-built-in"><strong>3.3.3: Average (using built-in)</strong></a></li>
@@ -403,23 +357,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-data-types"><strong>3.4: Python Data Types</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types"><strong>3.4.1: Numeric Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types"><strong>3.4.1: Numeric Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-int"><strong>Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-float"><strong>Floating-Point Numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers-complex"><strong>Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types"><strong>3.4.2: Text Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types"><strong>3.4.2: Text Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str"><strong>Strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types"><strong>3.4.3: Sequence Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types"><strong>3.4.3: Sequence Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-list"><strong>Lists (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-tuple"><strong>Tuples (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ranges-range"><strong>Ranges (<code class="docutils literal notranslate"><span class="pre">range</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types"><strong>3.4.4: Mapping Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types"><strong>3.4.4: Mapping Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-dict"><strong>Dictionaries (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</strong></a></li>
 </ul>
 </li>
@@ -1753,7 +1707,17 @@ Min: $1.99, Max: $2,847.50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/acb3710db3c608a763f70f2e972afd8146b06552311a9cd85f73c686402cbb9a.png" src="_images/acb3710db3c608a763f70f2e972afd8146b06552311a9cd85f73c686402cbb9a.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import required libraries for data visualization and numerical operations</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># For creating charts and graphs</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>               <span class="c1"># For mathematical operations and random number generation</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Create a time series representing 30 days of demand data</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1874,7 +1838,7 @@ Min: $1.99, Max: $2,847.50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5d532e7366a2d685d62c8c44a777b3dd36e150a9fef62c96466211eeea207a70.png" src="_images/5d532e7366a2d685d62c8c44a777b3dd36e150a9fef62c96466211eeea207a70.png" />
+<img alt="_images/363e59a35a93bd69bd840cb10732ccb299c0057f0947753b7dfd15b6febf2d14.png" src="_images/363e59a35a93bd69bd840cb10732ccb299c0057f0947753b7dfd15b6febf2d14.png" />
 </div>
 </div>
 </section>
@@ -2012,12 +1976,7 @@ Min: $1.99, Max: $2,847.50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5641577e653da98cbe21ba42af27f7588c04e09d4008b942b94ca01acab43f07.png" src="_images/5641577e653da98cbe21ba42af27f7588c04e09d4008b942b94ca01acab43f07.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average speed: 53.9 km/hour
-Correlation between distance and time: 0.965
-Inefficient routes needing optimization: 0 out of 50
-</pre></div>
-</div>
+<img alt="_images/06afa9e418c221196477942bf854427299352fbea6f3187d31043da5582f215d.png" src="_images/06afa9e418c221196477942bf854427299352fbea6f3187d31043da5582f215d.png" />
 </div>
 </div>
 </section>
@@ -2173,19 +2132,7 @@ Inefficient routes needing optimization: 0 out of 50
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aedb733f1eda3f0256ec0fd759c8498ccd76c4419df5d0ecfcfeac004fa9b7c0.png" src="_images/aedb733f1eda3f0256ec0fd759c8498ccd76c4419df5d0ecfcfeac004fa9b7c0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== FRAUD DETECTION SYSTEM SUMMARY ===
-Total Transactions Analyzed: 1,000
-Low Risk (Auto-Approve): 878 (87.8%)
-Medium Risk (Manual Review): 34 (3.4%)
-High Risk (Auto-Block): 88 (8.8%)
-
-BUSINESS IMPACT:
-• Transactions requiring human review: 122
-• Estimated fraud prevented: $74,800 (assuming $850 avg fraud amount)
-• Legitimate customers unaffected: 87.8%
-</pre></div>
-</div>
+<img alt="_images/31a7325a723f716a73bfa4ee756a938799aa851930083db165bea2029708344b.png" src="_images/31a7325a723f716a73bfa4ee756a938799aa851930083db165bea2029708344b.png" />
 </div>
 </div>
 </section>
@@ -2290,7 +2237,7 @@ BUSINESS IMPACT:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/287152386dcad23290a0158440fe6386c377c4606fd156830bd7758fad3e8755.png" src="_images/287152386dcad23290a0158440fe6386c377c4606fd156830bd7758fad3e8755.png" />
+<img alt="_images/949981e631b71b5b85818f527e436d56368c2a1f588b52081eec88a6837e07cd.png" src="_images/949981e631b71b5b85818f527e436d56368c2a1f588b52081eec88a6837e07cd.png" />
 </div>
 </div>
 </section>
@@ -2318,7 +2265,7 @@ BUSINESS IMPACT:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7f9d59fcb82db964f2960594eac001e09462fc1e4e86ae0b4dccc3e35ad21a3a.png" src="_images/7f9d59fcb82db964f2960594eac001e09462fc1e4e86ae0b4dccc3e35ad21a3a.png" />
+<img alt="_images/5cfff5fb141ca4ca6f5af4d700e088536149577777a12a846ab53d1c0a2f61b5.png" src="_images/5cfff5fb141ca4ca6f5af4d700e088536149577777a12a846ab53d1c0a2f61b5.png" />
 </div>
 </div>
 </section>
@@ -3486,73 +3433,6 @@ Score: 85/100 = Grade: B
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TESTING OUR ANALYTICAL FUNCTIONS
-========================================
-Original Data:
-  Alice: 92%
-  Bob: 78%
-  Charlie: 85%
-  Diana: 96%
-  Eve: 73%
-  Frank: 67%
-  Grace: 89%
-  Henry: 81%
-
-1. BASIC STATISTICS:
-   Mean: 82.62%
-   Median: 83.0%
-   Range: 67% - 96%
-
-2. PERFORMANCE CATEGORIES:
-   Alice (92%): Excellent
-   Bob (78%): Satisfactory
-   Charlie (85%): Good
-   Diana (96%): Excellent
-   Eve (73%): Satisfactory
-   Frank (67%): Needs Improvement
-   Grace (89%): Good
-   Henry (81%): Good
-
-3. COMPREHENSIVE ANALYSIS:
-==================================================
-CLASS PERFORMANCE ANALYSIS REPORT
-==================================================
-
-📊 CLASS STATISTICS:
-   Total Students: 8
-   Average Score: 82.62%
-   Median Score: 83.0%
-   Highest Score: 96%
-   Lowest Score: 67%
-   Score Range: 29 points
-
-🎯 PERFORMANCE DISTRIBUTION:
-   Excellent: 2 students (25.0%)
-   Satisfactory: 2 students (25.0%)
-   Good: 3 students (37.5%)
-   Needs Improvement: 1 students (12.5%)
-
-👥 INDIVIDUAL STUDENT CATEGORIES:
-   Alice: Excellent
-   Bob: Satisfactory
-   Charlie: Good
-   Diana: Excellent
-   Eve: Satisfactory
-   Frank: Needs Improvement
-   Grace: Good
-   Henry: Good
-==================================================
-
-✅ SUCCESS! Our functions work together to provide comprehensive analysis.
-💡 Benefits of using functions:
-   - Code is organized and reusable
-   - Easy to test individual components
-   - Can be used with different datasets
-   - Makes complex analysis manageable
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -4578,17 +4458,10 @@ d(A, B) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manual Calculation Verification:
-d(Alice, Bob) = 5.0
-NumPy calculation = 5.0
-
-Multi-dimensional Example (3 features):
-d(A, B) = 5.83
-d(A, C) = 1.00
-Student A is much more similar to Student C than to Student B!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Euclidean distance(A, B) = 5.0
 </pre></div>
 </div>
-<img alt="_images/01a0bd86b128e5a41d8aa24d7b179f5fd6725a21adfe588dd472b0fda84adf2e.png" src="_images/01a0bd86b128e5a41d8aa24d7b179f5fd6725a21adfe588dd472b0fda84adf2e.png" />
+<img alt="_images/17906201a72f550552e13717c442c634dd81e5e26cefe287ee4d05e8c5ef5697.png" src="_images/17906201a72f550552e13717c442c634dd81e5e26cefe287ee4d05e8c5ef5697.png" />
 </div>
 </div>
 <p><strong>Understanding the Results</strong></p>
@@ -4754,12 +4627,8 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manual example verification:
-cos(A, B) = 0.667
-
-Document similarity example:
-cos(doc1, doc2) = 0.109
-cos(doc1, doc3) = 1.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cos(u, v) = 0.109
+cos(u, w) = 1.0   # same direction → ~1.0
 </pre></div>
 </div>
 </div>
@@ -5032,96 +4901,12 @@ Standardized (z-scores):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset created!
-Total points: 40
-Class 0 points: 20 (centered around [2,2])
-Class 1 points: 20 (centered around [4.5,4.5])
-First few data points:
-  Point 0: coordinates [3.05843141 2.24009433], class 0
-  Point 1: coordinates [2.58724279 3.34453592], class 0
-  Point 2: coordinates [3.12053479 1.41363327], class 0
-  Point 3: coordinates [2.57005305 1.90918568], class 0
-  Point 4: coordinates [1.93806869 2.2463591 ], class 0
-
-==================================================
-TESTING k-NN ALGORITHM WITH k=5
-==================================================
-We will classify 3 new test points:
-  Test point 1: [3.  3.2]
-  Test point 2: [2.2 1.8]
-  Test point 3: [4.2 5. ]
-
-----------------------------------------
-CLASSIFICATION RESULTS:
-----------------------------------------
-
---- CLASSIFYING TEST POINT 1: [3.  3.2] ---
-
-Classifying new point: [3.  3.2]
-Calculated 40 distances to training points
-Found 5 nearest neighbors at indices: [14  1 18  0  5]
-Neighbor details:
-  Neighbor 1: point [2.91966753 2.88161526], class 0, distance 0.328
-  Neighbor 2: point [2.58724279 3.34453592], class 0, distance 0.437
-  Neighbor 3: point [2.73817441 2.72142791], class 0, distance 0.546
-  Neighbor 4: point [3.05843141 2.24009433], class 0, distance 0.962
-  Neighbor 5: point [2.08642614 2.8725641 ], class 0, distance 0.970
-Vote counts: [5]
-Predicted class: 0
-
---- CLASSIFYING TEST POINT 2: [2.2 1.8] ---
-
-Classifying new point: [2.2 1.8]
-Calculated 40 distances to training points
-Found 5 nearest neighbors at indices: [13  9  6  3 11]
-Neighbor details:
-  Neighbor 1: point [2.02745511 1.88768969], class 0, distance 0.194
-  Neighbor 2: point [2.18784062 1.48754256], class 0, distance 0.313
-  Neighbor 3: point [2.45662264 2.07300501], class 0, distance 0.375
-  Neighbor 4: point [2.57005305 1.90918568], class 0, distance 0.386
-  Neighbor 5: point [2.51866172 1.55470099], class 0, distance 0.402
-Vote counts: [5]
-Predicted class: 0
-
---- CLASSIFYING TEST POINT 3: [4.2 5. ] ---
-
-Classifying new point: [4.2 5. ]
-Calculated 40 distances to training points
-Found 5 nearest neighbors at indices: [25 27 23 28 39]
-Neighbor details:
-  Neighbor 1: point [3.96272006 4.7321415 ], class 1, distance 0.358
-  Neighbor 2: point [4.48309066 4.75699912], class 1, distance 0.373
-  Neighbor 3: point [3.74832278 4.96649421], class 1, distance 0.453
-  Neighbor 4: point [4.53991033 4.68148314], class 1, distance 0.466
-  Neighbor 5: point [4.31306848 4.53369921], class 1, distance 0.480
-Vote counts: [0 5]
-Predicted class: 1
-
-==================================================
-FINAL SUMMARY:
-==================================================
-Test point 1: [3.  3.2] → Class 0
-Test point 2: [2.2 1.8] → Class 0
-Test point 3: [4.2 5. ] → Class 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predictions for [[3.  3.2]
+ [2.2 1.8]
+ [4.2 5. ]] → [np.int64(0), np.int64(0), np.int64(1)]
 </pre></div>
 </div>
-<img alt="_images/0a617831a52ffa9426fe23af09f9dc2b1e635b6e5d61038616b1a07a5fa4854e.png" src="_images/0a617831a52ffa9426fe23af09f9dc2b1e635b6e5d61038616b1a07a5fa4854e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================================================
-UNDERSTANDING THE RESULTS:
-============================================================
-• k-NN with k=5 looks at the 5 closest training points
-• It uses &#39;majority vote&#39; - whichever class has more neighbors wins
-• Points closer to a cluster get classified as that cluster&#39;s class
-• The algorithm is &#39;lazy&#39; - it does no training, just stores data
-• Distance matters: closer points have more influence
-
-What happens if we change k?
-• Smaller k (like k=1): More sensitive to individual points, might be noisy
-• Larger k (like k=11): Smoother decisions, but might blur class boundaries
-• k should be odd to avoid ties in voting
-• Best k is usually found through experimentation and validation
-</pre></div>
-</div>
+<img alt="_images/3c97d93e3ae78c8e87c1dc4d5c9c8224fe4af7f9fc37a1a2d6f4002f50c9ba3a.png" src="_images/3c97d93e3ae78c8e87c1dc4d5c9c8224fe4af7f9fc37a1a2d6f4002f50c9ba3a.png" />
 </div>
 </div>
 <p><strong>Figure 6.3.1</strong>: k-NN Classification Visualization. This plot demonstrates how the k-Nearest Neighbors algorithm classifies new data points. The scattered points show our training dataset with two distinct classes: Class 0 (light blue circles) clustered around coordinates (2,2) and Class 1 (light coral squares) clustered around coordinates (4.5,4.5). Three test points (marked with black-bordered stars) are classified using k=5 nearest neighbors:</p>
@@ -5234,15 +5019,6 @@ k=11: val accuracy=1.00
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cluster centers:
- [[3.5  4.5 ]
- [2.06 1.95]
- [4.91 2.02]]
-</pre></div>
-</div>
-<img alt="_images/50272ab97e15b9e9e663c9a3b70b1b31a16920b105843db06b33a77abcd9df61.png" src="_images/50272ab97e15b9e9e663c9a3b70b1b31a16920b105843db06b33a77abcd9df61.png" />
-</div>
 </div>
 </section>
 <section id="hierarchical-clustering-build-a-tree-of-groups">
@@ -5273,28 +5049,6 @@ k=11: val accuracy=1.00
 <span class="n">pairs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;merge </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> &amp; </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> at distance </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pairwise distances:
- [[0.   0.22 1.49 4.31 4.39]
- [0.22 0.   1.27 4.1  4.18]
- [1.49 1.27 0.   2.83 2.91]
- [4.31 4.1  2.83 0.   0.22]
- [4.39 4.18 2.91 0.22 0.  ]]
-
-Smallest merge candidates (by distance):
-merge 0 &amp; 1 at distance 0.22
-merge 3 &amp; 4 at distance 0.22
-merge 1 &amp; 2 at distance 1.27
-merge 0 &amp; 2 at distance 1.49
-merge 2 &amp; 3 at distance 2.83
-merge 2 &amp; 4 at distance 2.91
-merge 1 &amp; 3 at distance 4.10
-merge 1 &amp; 4 at distance 4.18
-merge 0 &amp; 3 at distance 4.31
-merge 0 &amp; 4 at distance 4.39
 </pre></div>
 </div>
 </div>
@@ -5336,9 +5090,6 @@ merge 0 &amp; 4 at distance 4.39
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/2d14390c6f1bd6600044b846388c78139f12a9bebb79545389a9d98c576da7a6.png" src="_images/2d14390c6f1bd6600044b846388c78139f12a9bebb79545389a9d98c576da7a6.png" />
 </div>
 </div>
 </section>
@@ -5600,76 +5351,6 @@ c:\Users\bdupey\AppData\Local\anaconda3\Lib\site-packages\sklearn\metrics\_class
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>k</th>
-      <th>subset</th>
-      <th>ROC AUC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>[attendance]</td>
-      <td>0.782313</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>[study_hours, attendance]</td>
-      <td>0.673469</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>[study_hours]</td>
-      <td>0.671202</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>[study_hours, prior_gpa]</td>
-      <td>0.662132</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3</td>
-      <td>[study_hours, attendance, prior_gpa]</td>
-      <td>0.662132</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2</td>
-      <td>[attendance, prior_gpa]</td>
-      <td>0.528345</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1</td>
-      <td>[prior_gpa]</td>
-      <td>0.430839</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><strong>What the code does:</strong></p>
 <ul class="simple">
@@ -5729,55 +5410,6 @@ c:\Users\bdupey\AppData\Local\anaconda3\Lib\site-packages\sklearn\metrics\_class
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE : 0.42
-RMSE: 0.648
-MAE : 0.524
-R^2 : 0.883
-</pre></div>
-</div>
-<img alt="_images/24e238c0efd3425e7e3ffbdeb1c28ea7cf2610e5ed4750f026dc68331c1303bd.png" src="_images/24e238c0efd3425e7e3ffbdeb1c28ea7cf2610e5ed4750f026dc68331c1303bd.png" />
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>feature</th>
-      <th>coefficient</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>intercept</td>
-      <td>2.979462</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>x1</td>
-      <td>1.754208</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>x2</td>
-      <td>-0.624726</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><strong>What the code does:</strong></p>
 <ul class="simple">
@@ -5833,28 +5465,6 @@ R^2 : 0.883
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Tuning: k-NN ===
-Best params: {&#39;knn__n_neighbors&#39;: 15}
-CV best ROC AUC: 0.537
-Test ROC AUC   : 0.559
-
-=== Tuning: Random Forest ===
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best params: {&#39;max_depth&#39;: None, &#39;min_samples_split&#39;: 10, &#39;n_estimators&#39;: 100}
-CV best ROC AUC: 0.782
-Test ROC AUC   : 0.692
-
-=== Tuning: Gradient Boosting ===
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best params: {&#39;learning_rate&#39;: 0.05, &#39;max_depth&#39;: 3, &#39;n_estimators&#39;: 100}
-CV best ROC AUC: 0.788
-Test ROC AUC   : 0.566
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>What the code does:</strong></p>
 <ul class="simple">
@@ -5894,17 +5504,6 @@ Test ROC AUC   : 0.566
 <span class="n">_</span> <span class="o">=</span> <span class="n">quick_classification_experiment</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">best_gb</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.983
-ROC AUC : 0.472
-
-Confusion Matrix
- [[  0   2]
- [  0 118]]
-</pre></div>
-</div>
-<img alt="_images/1d9850c8ab158f49fbd2c4242f0173c36bd57644ee9f87f40ff0240834ff814f.png" src="_images/1d9850c8ab158f49fbd2c4242f0173c36bd57644ee9f87f40ff0240834ff814f.png" />
 </div>
 </div>
 </section>
@@ -6041,7 +5640,7 @@ Confusion Matrix
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functions-for-data-manipulation"><strong>3.3: Python Functions for Data Manipulation</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions"><strong>3.3.1: Built-in Functions</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions"><strong>3.3.1: Built-in Functions</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#summation-and-length"><strong>Summation and Length</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum"><strong>3.3.2: Minimum and Maximum</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#average-using-built-in"><strong>3.3.3: Average (using built-in)</strong></a></li>
@@ -6056,23 +5655,23 @@ Confusion Matrix
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-data-types"><strong>3.4: Python Data Types</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types"><strong>3.4.1: Numeric Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-types"><strong>3.4.1: Numeric Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-int"><strong>Integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers-float"><strong>Floating-Point Numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers-complex"><strong>Complex Numbers (<code class="docutils literal notranslate"><span class="pre">complex</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types"><strong>3.4.2: Text Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#text-types"><strong>3.4.2: Text Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-str"><strong>Strings (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types"><strong>3.4.3: Sequence Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-types"><strong>3.4.3: Sequence Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-list"><strong>Lists (<code class="docutils literal notranslate"><span class="pre">list</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-tuple"><strong>Tuples (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>)</strong></a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ranges-range"><strong>Ranges (<code class="docutils literal notranslate"><span class="pre">range</span></code>)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types"><strong>3.4.4: Mapping Types</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-types"><strong>3.4.4: Mapping Types</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries-dict"><strong>Dictionaries (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)</strong></a></li>
 </ul>
 </li>

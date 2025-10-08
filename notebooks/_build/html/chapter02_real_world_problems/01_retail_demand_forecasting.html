@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. 2.1 Retail Problem – Predicting Product Demand &#8212; Data 101: Intro to Data Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic-fix.css?v=be1fc0ce" />
+    <link rel="stylesheet" type="text/css" href="../_static/interactive-toc-styles.css?v=5c9fd6aa" />
+    <link rel="stylesheet" type="text/css" href="../_static/minimal-clean-theme.css?v=9587a7be" />
+    <link rel="stylesheet" type="text/css" href="../_static/retro-cs-theme.css?v=b485cecb" />
+    <link rel="stylesheet" type="text/css" href="../_static/simple-clean-toc.css?v=985e44b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/ultra-clean-theme.css?v=86b60449" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter02_real_world_problems/01_retail_demand_forecasting';</script>
+    <script src="../_static/advanced-search.js?v=8c3d90ba"></script>
+    <script src="../_static/interactive-toc.js?v=dbc4d49f"></script>
+    <script src="../_static/simple-clean-toc.js?v=744241e5"></script>
+    <script src="../_static/ultra-clean-toc.js?v=8f02a4cc"></script>
+    <link rel="canonical" href="https://bendupey87.github.io/data_101_textbook/chapter02_real_world_problems/01_retail_demand_forecasting.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. 2.2 Healthcare Problem – Predicting Readmission Risk" href="02_healthcare_readmissions.html" />
+    <link rel="prev" title="🏢 Chapter 2: Data Analytics Solutions to Real Life Problems" href="00_chapter_overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../00_introduction.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data 101: Intro to Data Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_table_of_contents.html">1. 📋 Table of Contents</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🏢 Real-World Applications</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_chapter_overview.html">Chapter 2: Data Analytics Solutions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1. 2.1: Retail Demand Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_healthcare_readmissions.html">2. 2.2: Healthcare Readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_financial_fraud_detection.html">3. 2.4: Financial Fraud Detection</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.1 Retail Problem – Predicting Product Demand</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-business-challenge">1.1. 📊 The Business Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-impact">1.1.1. Real-World Impact:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-traditional-methods-fail">1.1.2. Why Traditional Methods Fail:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytics-approach-business-value">1.2. 🎯 Analytics Approach &amp; Business Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-sources">1.2.1. Key Data Sources:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-benefits">1.2.2. Business Benefits:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-modeling-approaches">1.2.3. Common Modeling Approaches:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-1-retail-demand-forecasting-patterns">1.3. 📈 Figure 2.1: Retail Demand Forecasting Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insights">1.4. 🔍 Key Insights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-application">1.5. 💡 Real-World Application</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="retail-problem-predicting-product-demand">
+<h1><span class="section-number">1. </span>2.1 Retail Problem – Predicting Product Demand<a class="headerlink" href="#retail-problem-predicting-product-demand" title="Link to this heading">#</a></h1>
+<section id="the-business-challenge">
+<h2><span class="section-number">1.1. </span>📊 The Business Challenge<a class="headerlink" href="#the-business-challenge" title="Link to this heading">#</a></h2>
+<p>Retailers face one of the most fundamental challenges in business: the <strong>inventory optimization paradox</strong>. Stock too little, and you lose sales to competitors when customers can’t find what they want. Stock too much, and you tie up capital in inventory that may become obsolete, seasonal, or damaged.</p>
+<section id="real-world-impact">
+<h3><span class="section-number">1.1.1. </span>Real-World Impact:<a class="headerlink" href="#real-world-impact" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Stockouts cost</strong>: A typical retailer loses 4-8% of annual revenue to stockouts</p></li>
+<li><p><strong>Excess inventory cost</strong>: Holding costs average 20-25% of inventory value annually</p></li>
+<li><p><strong>Seasonal volatility</strong>: Holiday demand can be 3-5x normal levels, making prediction critical</p></li>
+<li><p><strong>Product lifecycle</strong>: Fashion items may have selling seasons of only 6-12 weeks</p></li>
+</ul>
+</section>
+<section id="why-traditional-methods-fail">
+<h3><span class="section-number">1.1.2. </span>Why Traditional Methods Fail:<a class="headerlink" href="#why-traditional-methods-fail" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Gut feeling</strong>: Store managers’ intuition doesn’t scale across thousands of SKUs</p></li>
+<li><p><strong>Simple averages</strong>: “We sold 100 units last month, so order 100” ignores trends and seasonality</p></li>
+<li><p><strong>Vendor minimums</strong>: Suppliers often require minimum orders that don’t match actual demand</p></li>
+<li><p><strong>Economic factors</strong>: Inflation, unemployment, and consumer confidence affect purchasing patterns</p></li>
+</ul>
+<p>Predictive demand analytics transforms this guesswork into data-driven precision, using historical sales patterns, external factors (weather, events, economic indicators), and real-time signals to forecast future demand with statistical confidence.</p>
+</section>
+</section>
+<section id="analytics-approach-business-value">
+<h2><span class="section-number">1.2. </span>🎯 Analytics Approach &amp; Business Value<a class="headerlink" href="#analytics-approach-business-value" title="Link to this heading">#</a></h2>
+<p>Instead of reactive ordering (waiting until inventory runs low), predictive models enable <strong>proactive inventory management</strong>:</p>
+<section id="key-data-sources">
+<h3><span class="section-number">1.2.1. </span>Key Data Sources:<a class="headerlink" href="#key-data-sources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Historical sales data</strong>: Pattern recognition across seasons, trends, and cycles</p></li>
+<li><p><strong>External factors</strong>: Weather data (ice cream sales spike at 75°F+), economic indicators, local events</p></li>
+<li><p><strong>Competitor analysis</strong>: Price monitoring and market share impacts</p></li>
+<li><p><strong>Supply chain data</strong>: Lead times, supplier reliability, shipping costs</p></li>
+</ul>
+</section>
+<section id="business-benefits">
+<h3><span class="section-number">1.2.2. </span>Business Benefits:<a class="headerlink" href="#business-benefits" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Revenue protection</strong>: Reduce lost sales from stockouts by 60-80%</p></li>
+<li><p><strong>Cash flow optimization</strong>: Decrease excess inventory holding costs by 15-25%</p></li>
+<li><p><strong>Customer satisfaction</strong>: Improve in-stock rates from 85% to 95%+</p></li>
+<li><p><strong>Operational efficiency</strong>: Automate reordering decisions, freeing up manager time for customer service</p></li>
+</ul>
+</section>
+<section id="common-modeling-approaches">
+<h3><span class="section-number">1.2.3. </span>Common Modeling Approaches:<a class="headerlink" href="#common-modeling-approaches" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Time series forecasting</strong>: ARIMA, exponential smoothing for trend and seasonal patterns</p></li>
+<li><p><strong>Machine learning</strong>: Random forests, neural networks incorporating multiple variables</p></li>
+<li><p><strong>Collaborative filtering</strong>: “Customers who bought X also bought Y” patterns</p></li>
+<li><p><strong>Ensemble methods</strong>: Combining multiple models for improved accuracy</p></li>
+</ul>
+</section>
+</section>
+<section id="figure-2-1-retail-demand-forecasting-patterns">
+<h2><span class="section-number">1.3. </span>📈 Figure 2.1: Retail Demand Forecasting Patterns<a class="headerlink" href="#figure-2-1-retail-demand-forecasting-patterns" title="Link to this heading">#</a></h2>
+<p>This chart compares stable versus volatile demand patterns over time, illustrating why predictive analytics is crucial for inventory management. The stable demand pattern (blue line) shows predictable seasonal fluctuations that are easier to forecast and stock for, while the volatile demand pattern (red line) demonstrates the challenges retailers face with unpredictable spikes and drops that require sophisticated forecasting models and larger safety stock buffers.</p>
+<p><strong>Don’t worry about the code — just focus on the visual insight.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries for data visualization and numerical operations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># For creating charts and graphs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>               <span class="c1"># For mathematical operations and random number generation</span>
+
+<span class="c1"># Create a time series representing 30 days of demand data</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>  <span class="c1"># Generate an array of integers from 1 to 30 (representing days)</span>
+
+<span class="c1"># Simulate STABLE demand pattern</span>
+<span class="c1"># np.sin(days/3) creates a smooth cyclical pattern (like weekly seasonality)</span>
+<span class="c1"># np.random.normal(0, 0.2, size=30) adds small random variations around the pattern</span>
+<span class="c1"># The 0.2 standard deviation means 95% of variations are within ±0.4 units</span>
+<span class="n">stable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">days</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Simulate VOLATILE demand pattern  </span>
+<span class="c1"># Same cyclical base pattern but with much larger random variations</span>
+<span class="c1"># The 0.8 standard deviation means 95% of variations are within ±1.6 units</span>
+<span class="c1"># This represents unpredictable demand swings that are 4x larger than stable demand</span>
+<span class="n">volatile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">days</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Create the visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">stable</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Stable Demand&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>    <span class="c1"># Smooth, predictable line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">volatile</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Volatile Demand&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># Jagged, unpredictable line</span>
+
+<span class="c1"># Add chart formatting and labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulated Retail Demand: Stable vs Volatile Patterns&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Day of Month&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative Demand (Normalized Units)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># Show which line represents which demand type</span>
+
+<span class="c1"># Add a grid for easier reading of values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Light grid lines to help read exact values</span>
+
+<span class="c1"># Display the chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># BUSINESS INSIGHT: Stable demand is much easier to forecast and manage inventory for.</span>
+<span class="c1"># Volatile demand requires larger safety stock and more sophisticated forecasting models.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-insights">
+<h2><span class="section-number">1.4. </span>🔍 Key Insights<a class="headerlink" href="#key-insights" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Predictable vs Unpredictable</strong>: The blue line shows how some products have predictable demand patterns that simple forecasting models can handle effectively.</p></li>
+<li><p><strong>Volatility Challenge</strong>: The red line illustrates why traditional “average-based” ordering fails for volatile products – the wide swings would lead to frequent stockouts and overstock situations.</p></li>
+<li><p><strong>Safety Stock Requirements</strong>: Volatile products need larger inventory buffers, which ties up more capital but prevents lost sales.</p></li>
+<li><p><strong>Model Sophistication</strong>: Stable products can use simpler forecasting methods, while volatile products benefit from machine learning approaches that can detect subtle patterns in the noise.</p></li>
+</ol>
+</section>
+<section id="real-world-application">
+<h2><span class="section-number">1.5. </span>💡 Real-World Application<a class="headerlink" href="#real-world-application" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Stable Products</strong>: Basic groceries, household essentials, prescription medications</p></li>
+<li><p><strong>Volatile Products</strong>: Fashion items, electronics, seasonal goods, trending products</p></li>
+</ul>
+<p>Companies like Amazon, Walmart, and Target use sophisticated demand forecasting systems that:</p>
+<ul class="simple">
+<li><p>Process millions of data points daily</p></li>
+<li><p>Incorporate weather forecasts, social media trends, and economic indicators</p></li>
+<li><p>Automatically adjust orders across thousands of suppliers</p></li>
+<li><p>Generate billions in cost savings annually through improved inventory optimization</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter02_real_world_problems"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00_chapter_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🏢 Chapter 2: Data Analytics Solutions to Real Life Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_healthcare_readmissions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>2.2 Healthcare Problem – Predicting Readmission Risk</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-business-challenge">1.1. 📊 The Business Challenge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-impact">1.1.1. Real-World Impact:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-traditional-methods-fail">1.1.2. Why Traditional Methods Fail:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytics-approach-business-value">1.2. 🎯 Analytics Approach &amp; Business Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-sources">1.2.1. Key Data Sources:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-benefits">1.2.2. Business Benefits:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-modeling-approaches">1.2.3. Common Modeling Approaches:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-2-1-retail-demand-forecasting-patterns">1.3. 📈 Figure 2.1: Retail Demand Forecasting Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-insights">1.4. 🔍 Key Insights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-application">1.5. 💡 Real-World Application</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben DuPey
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

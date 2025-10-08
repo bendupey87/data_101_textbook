@@ -1,0 +1,28 @@
+format: jb-book
+root: 00_introduction
+defaults:
+  numbered: true
+
+parts:
+  - caption: "Getting Started"
+    chapters:
+      - file: 01_table_of_contents
+
+  - caption: "🏢 Real-World Applications"
+    numbered: true
+    chapters:
+      - file: chapter02_real_world_problems/00_chapter_overview
+        title: "Chapter 2: Data Analytics Solutions"
+        sections:
+          - file: chapter02_real_world_problems/01_retail_demand_forecasting
+            title: "2.1: Retail Demand Forecasting"
+          - file: chapter02_real_world_problems/02_healthcare_readmissions
+            title: "2.2: Healthcare Readmissions"
+          - file: chapter02_real_world_problems/03_financial_fraud_detection
+            title: "2.4: Financial Fraud Detection"
+
+# Note: Other chapters commented out until they are created
+# - caption: "📈 Part 1: Introduction to Data Analytics"
+#   numbered: true
+#   chapters:
+#     - file: chapter01_introduction/01_what_is_data

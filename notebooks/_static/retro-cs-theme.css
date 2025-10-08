@@ -1,0 +1,635 @@
+/* =============================================================================
+   DATA 101 RETRO COMPUTER SCIENCE THEME
+   Version: 1.0
+   Description: Nostalgic CS aesthetic with modern functionality
+   ============================================================================= */
+
+/* Import retro-style fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&display=swap');
+
+/* =============================================================================
+   ROOT VARIABLES - RETRO COMPUTER SCIENCE COLOR PALETTE
+   ============================================================================= */
+:root {
+  /* Terminal-inspired colors */
+  --retro-bg-primary: #0d1117;           /* GitHub dark background */
+  --retro-bg-secondary: #161b22;         /* Slightly lighter dark */
+  --retro-bg-tertiary: #21262d;          /* Card/panel background */
+  
+  /* Classic terminal green variants */
+  --retro-green-bright: #39ff14;         /* Bright terminal green */
+  --retro-green-normal: #00ff00;         /* Standard green */
+  --retro-green-dim: #00cc00;            /* Dimmed green */
+  --retro-green-dark: #009900;           /* Dark green */
+  
+  /* Amber/orange for warnings and highlights */
+  --retro-amber: #ffb000;                /* Classic amber terminal */
+  --retro-orange: #ff6600;               /* Orange accent */
+  
+  /* Blue variants for links and info */
+  --retro-blue-bright: #66ccff;          /* Bright cyan-blue */
+  --retro-blue-normal: #0099ff;          /* Standard blue */
+  --retro-blue-dim: #0066cc;             /* Dimmed blue */
+  
+  /* Red for errors and warnings */
+  --retro-red: #ff4444;                  /* Bright red */
+  --retro-red-dim: #cc3333;              /* Dimmed red */
+  
+  /* Text colors */
+  --retro-text-primary: #c9d1d9;         /* Main text */
+  --retro-text-secondary: #8b949e;       /* Secondary text */
+  --retro-text-dim: #6e7681;             /* Dimmed text */
+  
+  /* Font stacks */
+  --retro-font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+  --retro-font-ui: 'SF Pro Display', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =============================================================================
+   GLOBAL STYLES
+   ============================================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--retro-bg-primary);
+  color: var(--retro-text-primary);
+  font-family: var(--retro-font-ui);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* =============================================================================
+   TERMINAL-STYLE CODE BLOCKS
+   ============================================================================= */
+.highlight pre,
+.highlight code,
+code,
+pre {
+  font-family: var(--retro-font-mono) !important;
+  background: var(--retro-bg-secondary) !important;
+  border: 1px solid var(--retro-green-dark);
+  border-radius: 4px;
+  color: var(--retro-green-normal) !important;
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+}
+
+/* Inline code styling */
+code {
+  padding: 2px 6px;
+  font-size: 0.9em;
+  background: var(--retro-bg-tertiary) !important;
+  border: 1px solid var(--retro-green-dim);
+  color: var(--retro-green-bright) !important;
+}
+
+/* Block code styling */
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: 
+    0 0 10px rgba(57, 255, 20, 0.1),
+    inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Code block with terminal prompt effect */
+.highlight::before {
+  content: '$ ';
+  color: var(--retro-green-bright);
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* =============================================================================
+   NAVIGATION AND TABLE OF CONTENTS
+   ============================================================================= */
+.bd-sidebar-primary {
+  background: var(--retro-bg-secondary);
+  border-right: 2px solid var(--retro-green-dark);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.bd-sidebar-primary .navbar-nav .nav-link {
+  color: var(--retro-text-primary);
+  font-family: var(--retro-font-mono);
+  font-size: 0.9em;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.bd-sidebar-primary .navbar-nav .nav-link:hover {
+  color: var(--retro-green-bright);
+  border-left-color: var(--retro-green-normal);
+  background: rgba(57, 255, 20, 0.05);
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+}
+
+.bd-sidebar-primary .navbar-nav .nav-link.active {
+  color: var(--retro-green-bright);
+  border-left-color: var(--retro-green-bright);
+  background: rgba(57, 255, 20, 0.1);
+  font-weight: 500;
+}
+
+/* Collapsible TOC sections */
+.bd-sidebar-primary .collapse-toggle {
+  color: var(--retro-amber);
+  font-family: var(--retro-font-mono);
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.bd-sidebar-primary .collapse-toggle:hover {
+  color: var(--retro-orange);
+  text-shadow: 0 0 5px rgba(255, 176, 0, 0.5);
+}
+
+.bd-sidebar-primary .collapse-toggle::before {
+  content: '▶ ';
+  transition: transform 0.3s ease;
+}
+
+.bd-sidebar-primary .collapse-toggle.expanded::before {
+  transform: rotate(90deg);
+  content: '▼ ';
+}
+
+/* =============================================================================
+   ENHANCED SEARCH BAR
+   ============================================================================= */
+.search-container {
+  position: relative;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  background: var(--retro-bg-tertiary);
+  border: 2px solid var(--retro-green-dark);
+  border-radius: 8px;
+  color: var(--retro-text-primary);
+  font-family: var(--retro-font-mono);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--retro-green-bright);
+  box-shadow: 
+    0 0 0 3px rgba(57, 255, 20, 0.1),
+    0 0 20px rgba(57, 255, 20, 0.2);
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+}
+
+.search-input::placeholder {
+  color: var(--retro-text-dim);
+  font-style: italic;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--retro-green-normal);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* Search results dropdown */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--retro-bg-secondary);
+  border: 2px solid var(--retro-green-dark);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.search-result-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--retro-bg-tertiary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+  background: rgba(57, 255, 20, 0.1);
+  border-left: 3px solid var(--retro-green-bright);
+}
+
+.search-result-title {
+  font-family: var(--retro-font-mono);
+  font-weight: 500;
+  color: var(--retro-green-bright);
+  margin-bottom: 0.25rem;
+}
+
+.search-result-preview {
+  color: var(--retro-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.search-highlight {
+  background: rgba(255, 176, 0, 0.3);
+  color: var(--retro-amber);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* =============================================================================
+   HEADERS AND TYPOGRAPHY
+   ============================================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--retro-font-mono);
+  color: var(--retro-green-bright);
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--retro-green-normal);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--retro-green-dim);
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--retro-amber);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--retro-blue-bright);
+}
+
+/* =============================================================================
+   LINKS
+   ============================================================================= */
+a {
+  color: var(--retro-blue-bright);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--retro-blue-normal);
+  text-shadow: 0 0 5px rgba(102, 204, 255, 0.5);
+  text-decoration: underline;
+}
+
+/* =============================================================================
+   TABLES
+   ============================================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--retro-bg-secondary);
+  border: 2px solid var(--retro-green-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+th {
+  background: var(--retro-bg-tertiary);
+  color: var(--retro-green-bright);
+  font-family: var(--retro-font-mono);
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--retro-green-normal);
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--retro-bg-tertiary);
+  color: var(--retro-text-primary);
+}
+
+tr:hover {
+  background: rgba(57, 255, 20, 0.05);
+}
+
+/* =============================================================================
+   BLOCKQUOTES AND CALLOUTS
+   ============================================================================= */
+blockquote {
+  border-left: 4px solid var(--retro-amber);
+  background: rgba(255, 176, 0, 0.1);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--retro-text-primary);
+  font-style: italic;
+  box-shadow: 0 2px 10px rgba(255, 176, 0, 0.1);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* Admonition styles */
+.admonition {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admonition.note {
+  background: rgba(102, 204, 255, 0.1);
+  border-left-color: var(--retro-blue-bright);
+}
+
+.admonition.tip {
+  background: rgba(57, 255, 20, 0.1);
+  border-left-color: var(--retro-green-bright);
+}
+
+.admonition.warning {
+  background: rgba(255, 176, 0, 0.1);
+  border-left-color: var(--retro-amber);
+}
+
+.admonition.danger {
+  background: rgba(255, 68, 68, 0.1);
+  border-left-color: var(--retro-red);
+}
+
+/* =============================================================================
+   INTERACTIVE ELEMENTS
+   ============================================================================= */
+button,
+.btn {
+  background: var(--retro-bg-tertiary);
+  color: var(--retro-green-bright);
+  border: 2px solid var(--retro-green-normal);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: var(--retro-font-mono);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--retro-green-normal);
+  color: var(--retro-bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 15px rgba(57, 255, 20, 0.3),
+    0 0 20px rgba(57, 255, 20, 0.2);
+}
+
+/* =============================================================================
+   PROGRESS BARS AND LOADING ANIMATIONS
+   ============================================================================= */
+.progress-bar {
+  background: var(--retro-bg-tertiary);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: 1px solid var(--retro-green-dark);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--retro-green-normal), var(--retro-green-bright));
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: progress-shine 2s infinite;
+}
+
+@keyframes progress-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* =============================================================================
+   TERMINAL-STYLE ANIMATIONS
+   ============================================================================= */
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid var(--retro-green-bright);
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--retro-green-bright); }
+}
+
+/* Terminal cursor blink */
+.cursor::after {
+  content: '█';
+  color: var(--retro-green-bright);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* =============================================================================
+   MOBILE RESPONSIVENESS
+   ============================================================================= */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .search-container {
+    max-width: 100%;
+    margin: 1rem;
+  }
+  
+  pre {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    overflow-x: scroll;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+  }
+}
+
+/* =============================================================================
+   DARK MODE TOGGLE (Optional)
+   ============================================================================= */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--retro-bg-tertiary);
+  border: 2px solid var(--retro-green-normal);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+/* =============================================================================
+   PRINT STYLES
+   ============================================================================= */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .bd-sidebar-primary,
+  .search-container,
+  .theme-toggle {
+    display: none !important;
+  }
+  
+  pre, code {
+    background: #f5f5f5 !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    text-shadow: none !important;
+  }
+}
+
+/* =============================================================================
+   CUSTOM FOOTER
+   ============================================================================= */
+.footer-custom {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--retro-bg-secondary);
+  border-top: 2px solid var(--retro-green-dark);
+  margin-top: 3rem;
+  font-family: var(--retro-font-mono);
+  color: var(--retro-text-secondary);
+}
+
+.footer-custom p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* =============================================================================
+   JUPYTER NOTEBOOK INTEGRATION
+   ============================================================================= */
+.jp-Cell {
+  background: var(--retro-bg-secondary) !important;
+  border: 1px solid var(--retro-green-dark) !important;
+  border-radius: 8px !important;
+  margin: 1rem 0 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.jp-CodeCell .jp-Cell-inputWrapper {
+  background: var(--retro-bg-tertiary) !important;
+}
+
+.jp-CodeMirrorEditor {
+  font-family: var(--retro-font-mono) !important;
+  color: var(--retro-green-normal) !important;
+}
+
+.jp-OutputArea {
+  background: var(--retro-bg-primary) !important;
+  border-top: 1px solid var(--retro-green-dark) !important;
+}
+
+/* =============================================================================
+   SCROLLBAR STYLING
+   ============================================================================= */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--retro-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--retro-green-normal);
+  border-radius: 6px;
+  border: 2px solid var(--retro-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--retro-green-bright);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--retro-green-normal) var(--retro-bg-secondary);
+}

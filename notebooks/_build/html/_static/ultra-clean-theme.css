@@ -1,0 +1,425 @@
+/* COMPLETE UI OVERHAUL - CLEAN MODERN WEB DESIGN */
+/* Remove ALL Jupyter Book clutter and create a professional interface */
+
+/* === RESET AND HIDE ALL JUPYTER BOOK CLUTTER === */
+/* Hide floating icons, toolbar junk, and random widgets */
+.bd-header,
+.bd-navbar,
+.navbar,
+.bd-sidebar-secondary,
+.bd-toc,
+.bd-footer,
+.bd-content .bd-article-container footer,
+.sidebar-primary-items__end,
+.sidebar-primary-items__start,
+.prev-next-area,
+.bd-page-width,
+.bd-container-fluid,
+.bd-sidebar .navbar-nav,
+.bd-sidebar .bd-toc-nav,
+header.bd-header,
+.bd-header-announcement,
+.bd-header-article,
+nav.bd-links,
+.bd-search,
+.search-button,
+.theme-switch-button,
+.fullscreen-button,
+.sourcelink,
+.editthispage,
+.download-button,
+.repository-button,
+body > .bd-container-fluid > .bd-container > .bd-row > .bd-sidebar-secondary {
+    display: none !important;
+}
+
+/* === CLEAN LAYOUT STRUCTURE === */
+/* Create a clean two-column layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+.bd-container-fluid {
+    display: flex !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh;
+}
+
+.bd-sidebar-primary {
+    width: 320px !important;
+    min-width: 320px !important;
+    height: 100vh !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    background: #0a0a0a !important;
+    border-right: 2px solid #39ff14 !important;
+    z-index: 1000 !important;
+    overflow-y: auto !important;
+    box-shadow: 2px 0 10px rgba(57, 255, 20, 0.1);
+}
+
+/* Main content area */
+.bd-main {
+    margin-left: 320px !important;
+    width: calc(100% - 320px) !important;
+    min-height: 100vh !important;
+    background: #1a1a1a !important;
+    padding: 0 !important;
+}
+
+.bd-content {
+    max-width: none !important;
+    padding: 2rem 3rem !important;
+    background: #1a1a1a !important;
+    min-height: 100vh !important;
+}
+
+/* === CLEAN TYPOGRAPHY === */
+/* Fix blurry, hard-to-read text */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Clean headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-weight: 600 !important;
+    color: #39ff14 !important;
+    line-height: 1.3 !important;
+    margin: 2rem 0 1rem 0 !important;
+    text-shadow: none !important;
+    letter-spacing: -0.02em !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+    border-bottom: 3px solid #39ff14 !important;
+    padding-bottom: 0.5rem !important;
+}
+
+h2 {
+    font-size: 1.8rem !important;
+    color: #ffffff !important;
+}
+
+h3 {
+    font-size: 1.4rem !important;
+    color: #cccccc !important;
+}
+
+/* Clean body text */
+p, li, td, th {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    color: #e0e0e0 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Clean links */
+a {
+    color: #39ff14 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6) !important;
+}
+
+/* === CLEAN SIDEBAR === */
+/* Remove all competing interfaces and create one clean navigation */
+.clean-toc-header {
+    padding: 1.5rem !important;
+    border-bottom: 2px solid #39ff14 !important;
+    background: #0a0a0a !important;
+}
+
+.clean-toc-header .toc-title h3 {
+    color: #39ff14 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 1rem 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Clean unified search */
+#unified-search {
+    width: 100% !important;
+    padding: 0.8rem 1rem !important;
+    background: #1a1a1a !important;
+    border: 2px solid #333 !important;
+    border-radius: 8px !important;
+    color: #e0e0e0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 0.95rem !important;
+    transition: all 0.2s ease !important;
+}
+
+#unified-search:focus {
+    outline: none !important;
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.2) !important;
+}
+
+#unified-search::placeholder {
+    color: #888 !important;
+}
+
+/* Clean navigation */
+.clean-navigation {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.clean-nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.nav-item {
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.nav-item-content {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1rem 1.5rem !important;
+    background: transparent !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.nav-item-content:hover {
+    background: rgba(57, 255, 20, 0.1) !important;
+}
+
+.expand-btn {
+    background: none !important;
+    border: none !important;
+    color: #39ff14 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+    margin-right: 0.8rem !important;
+    padding: 0.3rem !important;
+    width: 24px !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+    border-radius: 4px !important;
+}
+
+.expand-btn:hover {
+    background: rgba(57, 255, 20, 0.2) !important;
+}
+
+.nav-link {
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    flex: 1 !important;
+    display: block !important;
+    transition: all 0.2s ease !important;
+}
+
+.nav-link:hover {
+    color: #39ff14 !important;
+}
+
+/* Child navigation */
+.nav-children {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: 1000px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-children.collapsed {
+    max-height: 0 !important;
+}
+
+.nav-children .nav-item-content {
+    padding-left: 3rem !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* === CLEAN CONTENT AREA === */
+/* Remove code blocks clutter and floating elements */
+.bd-article {
+    background: #1a1a1a !important;
+    padding: 0 !important;
+    max-width: none !important;
+}
+
+/* Clean code blocks */
+.highlight, .highlight pre, code, .code {
+    background: #0f0f0f !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Menlo", monospace !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: #e0e0e0 !important;
+    overflow-x: auto !important;
+}
+
+/* Inline code */
+code {
+    padding: 0.2rem 0.4rem !important;
+    background: #2a2a2a !important;
+    border-radius: 4px !important;
+    font-size: 0.85rem !important;
+}
+
+/* Clean lists */
+ul, ol {
+    padding-left: 1.5rem !important;
+    margin: 1rem 0 !important;
+}
+
+li {
+    margin: 0.5rem 0 !important;
+}
+
+/* Remove jupyter notebook cell clutter */
+.jp-Cell, .cell, .cell-output, .cell-input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+}
+
+/* Clean tables */
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 2rem 0 !important;
+    background: #0f0f0f !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+th, td {
+    padding: 1rem !important;
+    text-align: left !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+th {
+    background: #2a2a2a !important;
+    font-weight: 600 !important;
+    color: #39ff14 !important;
+}
+
+/* Remove random floating widgets */
+.bd-sidebar .bd-toc .nav > li > a,
+.bd-toc .nav .nav,
+.bd-page-nav,
+.edit-this-page,
+.prev-next-bottom,
+.footer-article,
+.bd-footer-article,
+.bd-footer-content__inner,
+.sourcelink,
+.editthispage {
+    display: none !important;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .bd-sidebar-primary {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+    
+    .bd-main {
+        margin-left: 280px !important;
+        width: calc(100% - 280px) !important;
+    }
+    
+    .bd-content {
+        padding: 1.5rem 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .bd-sidebar-primary {
+        width: 100% !important;
+        min-width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        border-right: none !important;
+        border-bottom: 2px solid #39ff14 !important;
+    }
+    
+    .bd-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .bd-content {
+        padding: 1rem !important;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* === ACCESSIBILITY === */
+/* Focus states */
+.expand-btn:focus,
+.nav-link:focus,
+#unified-search:focus {
+    outline: 2px solid #39ff14 !important;
+    outline-offset: 2px !important;
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+    body {
+        background: #000000 !important;
+    }
+    
+    .bd-content {
+        background: #000000 !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

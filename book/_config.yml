@@ -1,4 +1,4 @@
-title: "Data 101"
+title: "📊 Data 101: Intro to Data Analytics"
 only_build_toc_files: true
 
 sphinx:
@@ -6,15 +6,27 @@ sphinx:
   config:
     html_theme: "sphinx_book_theme"
     html_theme_options:
+      # Remove all buttons and left sidebar elements
       use_repository_button: false
       use_issues_button: false
       use_edit_page_button: false
-      show_navbar_depth: 2       # Needed for nested headers
-      show_toc_level: 3          # Include h3 headers in sidebar
-      sidebars: ["sidebar-nav-bs", "page-toc"]  # ✅ Enables right-hand ToC
+      use_download_button: false
+      
+      # Configure TOC behavior
+      show_navbar_depth: 1       # Only show top-level sections initially
+      show_toc_level: 4          # Include up to h4 headers in right TOC
+      collapse_navigation: true   # Enable collapsing
+      navigation_depth: 4        # Allow deep nesting
+      
+      # Right sidebar only with page TOC
+      sidebars: ["page-toc"]     # Only right-hand TOC, no left sidebar
+      
+      # Clean interface
       search_bar_text: "Search this book..."
-html_theme_options:
-  collapse_navigation: true      # Auto-collapse nested entries
-  navigation_depth: 2            # Limit sidebar levels
-  sidebar_hide_name: true        # Hide the page title in sidebar
-  default_sidebar: "collapsed"   # ✅ Auto closes the sidebar on load
+      sidebar_hide_name: true    # Hide page title in sidebar
+      
+      # Custom CSS and JS for collapsible TOC
+      extra_css:
+        - "_static/custom-toc.css"
+      extra_js:
+        - "_static/custom-toc.js"

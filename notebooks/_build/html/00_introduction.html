@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📊 Data 101: Intro to Data Analytics &#8212; Data 101: Intro to Data Analytics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/basic-fix.css?v=be1fc0ce" />
+    <link rel="stylesheet" type="text/css" href="_static/interactive-toc-styles.css?v=5c9fd6aa" />
+    <link rel="stylesheet" type="text/css" href="_static/minimal-clean-theme.css?v=9587a7be" />
+    <link rel="stylesheet" type="text/css" href="_static/retro-cs-theme.css?v=b485cecb" />
+    <link rel="stylesheet" type="text/css" href="_static/simple-clean-toc.css?v=985e44b1" />
+    <link rel="stylesheet" type="text/css" href="_static/ultra-clean-theme.css?v=86b60449" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '00_introduction';</script>
+    <script src="_static/advanced-search.js?v=8c3d90ba"></script>
+    <script src="_static/interactive-toc.js?v=dbc4d49f"></script>
+    <script src="_static/simple-clean-toc.js?v=744241e5"></script>
+    <script src="_static/ultra-clean-toc.js?v=8f02a4cc"></script>
+    <link rel="canonical" href="https://bendupey87.github.io/data_101_textbook/00_introduction.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. 📋 Table of Contents" href="01_table_of_contents.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data 101: Intro to Data Analytics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_table_of_contents.html">1. 📋 Table of Contents</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">🏢 Real-World Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapter02_real_world_problems/00_chapter_overview.html">Chapter 2: Data Analytics Solutions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter02_real_world_problems/01_retail_demand_forecasting.html">1. 2.1: Retail Demand Forecasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter02_real_world_problems/02_healthcare_readmissions.html">2. 2.2: Healthcare Readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter02_real_world_problems/03_financial_fraud_detection.html">3. 2.4: Financial Fraud Detection</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📊 Data 101: Intro to Data Analytics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 <strong>Data 101: Intro to Data Analytics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-beginners-guide-to-data-analysis-with-python"><em>A Beginner’s Guide to Data Analysis with Python</em></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">👋 Introduction</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-101-intro-to-data-analytics">
+<h1>📊 <strong>Data 101: Intro to Data Analytics</strong><a class="headerlink" href="#data-101-intro-to-data-analytics" title="Link to this heading">#</a></h1>
+<section id="a-beginners-guide-to-data-analysis-with-python">
+<h2><em>A Beginner’s Guide to Data Analysis with Python</em><a class="headerlink" href="#a-beginners-guide-to-data-analysis-with-python" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style="background-color: #2d3748; color: #e2e8f0; padding: 20px; border-radius: 8px; font-family: 'Consolas', 'Monaco', 'Courier New', monospace; border: 1px solid #4a5568; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>📊 Data 101: Intro to Data Analytics
+   A Beginner&#39;s Guide to Data Analysis with Python
+
+Current Semester: FA2025
+Current Instructor: Ben DuPey (he/him/his)
+Version 0.9.9-Dev | Development Release
+</pre></div>
+</div>
+<div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #4a5568; font-size: 12px; color: #a0aec0;">
+<span style="color: #68d391;">●</span> Course Active | <span style="color: #fbb6ce;">●</span> <a href="https://github.com/bendupey87/data_101_textbook" style="color: #fbb6ce; text-decoration: none;" target="_blank">Development Build</a> | <a href="https://github.com/bendupey87/data_101_textbook" style="color: #81c7d4; text-decoration: none;" target="_blank">📝 Change Notes</a>
+</div>
+</div></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>👋 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p><strong>Hey Future Data Analysts!</strong></p>
+<p>I’m <strong>Ben DuPey</strong>, your instructor for Data 101, and I want to start with something that might surprise you: <strong>I was sitting exactly where you are not too long ago.</strong></p>
+<p>Just a few years back, I was a Grand View student taking this very course. I had never written a line of Python code in my life. I remember staring at my first <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello,</span> <span class="pre">World!&quot;)</span></code> and thinking, <em>“How does this tiny piece of text lead to analyzing massive datasets?”</em></p>
+<p><strong>Plot twist</strong>: It totally does! 🚀</p>
+<p>Fast forward to today: I’m the Institutional Data Analyst here at Grand View, using Python every single day to uncover insights from student data, enrollment trends, and campus operations. The same skills you’re about to learn are literally my job now. How cool is that?</p>
+<p><strong>Dr. Oscar Aguilar</strong>, my professor and mentor, taught me everything foundational about data analytics. His wisdom fills these pages, and he’s still guiding me as I navigate teaching this course. If you find something explained really well, that’s probably Oscar’s influence. If you find a typo or something confusing, that’s definitely me! 😅</p>
+<hr class="docutils" />
+<p>🎯 <strong>Why This Course Matters (And Why It’s Harder Than You Think)</strong></p>
+<p>Let me be real with you—<strong>this course is tough</strong>. Learning to code for the first time while simultaneously learning to think analytically? It’s like learning to drive while someone teaches you how cars work under the hood.</p>
+<p><strong>But here’s the thing</strong>: It’s also incredibly rewarding.</p>
+<p>You’re going to have moments where nothing makes sense, where your code won’t run, and where you question why variables have such weird names. I’ve been there. We’ve all been there. That’s not failure—that’s learning.</p>
+<p>You’re also going to have moments where everything clicks. Where your code produces a beautiful visualization that tells a story. Where you find a pattern in data that no one else noticed. Where you solve a real problem using nothing but your laptop and some Python code. Those moments? <strong>They’re absolute magic.</strong> ✨</p>
+<hr class="docutils" />
+<p>🌟 <strong>What Makes This Different</strong></p>
+<p>This isn’t just a textbook—it’s a conversation between someone who recently walked your path and students who are brave enough to take their first steps into the world of data.</p>
+<p><strong>What you’ll get from me:</strong></p>
+<ul class="simple">
+<li><p>The perspective of someone who learned this as a complete beginner</p></li>
+<li><p>Real examples from my actual work (with student data privacy protected, of course!)</p></li>
+<li><p>Honest talk about what’s hard and what gets easier</p></li>
+<li><p>The excitement of someone who still remembers discovering how powerful this stuff is</p></li>
+</ul>
+<hr class="docutils" />
+<p>📚 <strong>A Living Document for Living Learners</strong></p>
+<p>This course material is <strong>constantly evolving</strong>, just like the field of data analytics. When you find something confusing, tell me. When you discover a cool way to solve a problem, share it. When you break something in your code (and you will!), let’s figure it out together.</p>
+<p><strong>Version 0.9.1-dev</strong> means this is a work in progress—just like all of us learning data science.</p>
+<p>🔗 <strong>Stay Connected &amp; Updated</strong></p>
+<p>📋 <strong>Release Notes &amp; Updates</strong>: Want to see what’s new, what’s been fixed, or what’s coming next? Check out the detailed release notes in the README file on our GitHub repository: <strong><a class="github reference external" href="https://github.com/bendupey87/data_101_textbook">bendupey87/data_101_textbook</a></strong></p>
+<p>🐛 <strong>Found a Bug or Have a Suggestion?</strong> The GitHub repo is also the perfect place to report issues, suggest improvements, or contribute to making this textbook even better for future students.</p>
+<p>💡 <strong>Why GitHub?</strong> Think of it as our course’s “behind the scenes” space—where all the updates, fixes, and improvements happen. Plus, getting familiar with GitHub is a valuable skill for any data analyst!</p>
+<hr class="docutils" />
+<p>🗺️ <strong>Your Learning Journey</strong></p>
+<p>Here’s what we’ll explore together:</p>
+<ul class="simple">
+<li><p><strong>Part 1: Introduction to Data Analytics</strong></p>
+<ul>
+<li><p><strong>Chapter 1:</strong> Introduction to Data Analysis (Where it all begins!)</p></li>
+<li><p><strong>Chapter 2:</strong> Data Analytics Solutions to Real World Problems (Why this matters)</p></li>
+</ul>
+</li>
+<li><p><strong>Part 2: Basic Exploratory Data Analysis &amp; Python Functions</strong></p>
+<ul>
+<li><p><strong>Chapter 3:</strong> Basic Data Manipulation (Your new superpower)</p></li>
+<li><p><strong>Chapter 4:</strong> Generating Descriptive Statistics (Making data tell stories)</p></li>
+</ul>
+</li>
+<li><p><strong>Part 3: Introduction To More Advanced Modeling Techniques</strong></p>
+<ul>
+<li><p><strong>Chapter 5:</strong> Similarity, Neighbors, &amp; Clustering (Finding patterns)</p></li>
+<li><p><strong>Chapter 6:</strong> Fitting Data to Models (Predicting the future)</p></li>
+<li><p><strong>Chapter 7:</strong> Introduction to Predictive Modeling (The really cool stuff)</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>🎯 <strong>A Personal Promise</strong></p>
+<p>I promise you this: <strong>If I can go from knowing absolutely nothing about programming to being a data analyst, so can you.</strong></p>
+<p>It won’t always be easy. You’ll get stuck. Your code will break. You’ll wonder if you’re cut out for this. But if you stick with it, if you keep asking questions, and if you remember that every expert was once a beginner, you’ll amaze yourself with what you can accomplish.</p>
+<p><strong>Ready to dive in?</strong> Let’s turn you into data detectives! 🔍📊</p>
+<hr class="docutils" />
+<p><em>P.S. - Seriously, don’t hesitate to ask questions. The best part about being taught by someone who was recently in your shoes is that I remember exactly what confused me—and I’m here to make sure it doesn’t confuse you.</em></p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="01_table_of_contents.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>📋 Table of Contents</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 <strong>Data 101: Intro to Data Analytics</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-beginners-guide-to-data-analysis-with-python"><em>A Beginner’s Guide to Data Analysis with Python</em></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">👋 Introduction</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ben DuPey
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

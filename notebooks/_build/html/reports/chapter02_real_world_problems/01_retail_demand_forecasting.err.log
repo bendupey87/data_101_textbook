@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "C:\git\.venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\git\.venv\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\git\.venv\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\git\.venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\git\.venv\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\git\.venv\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\git\.venv\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Import required libraries for data visualization and numerical operations
+import matplotlib.pyplot as plt  # For creating charts and graphs
+import numpy as np               # For mathematical operations and random number generation
+
+# Create a time series representing 30 days of demand data
+days = np.arange(1, 31)  # Generate an array of integers from 1 to 30 (representing days)
+
+# Simulate STABLE demand pattern
+# np.sin(days/3) creates a smooth cyclical pattern (like weekly seasonality)
+# np.random.normal(0, 0.2, size=30) adds small random variations around the pattern
+# The 0.2 standard deviation means 95% of variations are within ±0.4 units
+stable = np.sin(days/3) + np.random.normal(0, 0.2, size=30)
+
+# Simulate VOLATILE demand pattern  
+# Same cyclical base pattern but with much larger random variations
+# The 0.8 standard deviation means 95% of variations are within ±1.6 units
+# This represents unpredictable demand swings that are 4x larger than stable demand
+volatile = np.sin(days/3) + np.random.normal(0, 0.8, size=30)
+
+# Create the visualization
+plt.plot(days, stable, label="Stable Demand", linewidth=2, color='blue')    # Smooth, predictable line
+plt.plot(days, volatile, label="Volatile Demand", linewidth=2, color='red') # Jagged, unpredictable line
+
+# Add chart formatting and labels
+plt.title("Simulated Retail Demand: Stable vs Volatile Patterns", fontsize=14, fontweight='bold')
+plt.xlabel("Day of Month", fontsize=12)
+plt.ylabel("Relative Demand (Normalized Units)", fontsize=12)
+plt.legend(fontsize=11)  # Show which line represents which demand type
+
+# Add a grid for easier reading of values
+plt.grid(True, alpha=0.3)  # Light grid lines to help read exact values
+
+# Display the chart
+plt.show()
+
+# BUSINESS INSIGHT: Stable demand is much easier to forecast and manage inventory for.
+# Volatile demand requires larger safety stock and more sophisticated forecasting models.
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m# Import required libraries for data visualization and numerical operations[39;00m
+[32m----> [39m[32m2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m  [38;5;66;03m# For creating charts and graphs[39;00m
+[32m      3[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m               [38;5;66;03m# For mathematical operations and random number generation[39;00m
+[32m      5[39m [38;5;66;03m# Create a time series representing 30 days of demand data[39;00m
+
+[31mModuleNotFoundError[39m: No module named 'matplotlib'
+
