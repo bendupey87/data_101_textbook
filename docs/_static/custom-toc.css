@@ -1,0 +1,428 @@
+/* Custom TOC styling for collapsible sections */
+
+/* Hide left sidebar completely */
+.bd-sidebar-primary {
+    display: none !important;
+}
+
+/* Hide hamburger menu since we don't have a left sidebar */
+.pst-navbar-icon,
+.bd-navbar .navbar-nav .nav-item button,
+.bd-navbar .navbar-toggler,
+button[data-bs-target="#pst-primary-sidebar-checkbox"],
+label[for="pst-primary-sidebar-checkbox"],
+.sidebar-toggle,
+.navbar-nav .nav-item:has(button[aria-label*="navigation"]) {
+    display: none !important;
+}
+
+/* Hide fullscreen button - it doesn't work */
+.pst-fullscreen-button,
+button[data-pst-action="fullscreen"],
+.bd-header-article button[title*="fullscreen"],
+.bd-header-article .btn[title*="fullscreen"],
+.bd-header-article .btn-outline-primary:has([class*="fa-expand"]) {
+    display: none !important;
+}
+
+/* Show the theme toggle button */
+.theme-switch-button,
+.pst-color-mode-button,
+button[data-pst-action="theme"],
+.bd-header-article button[title*="light"],
+.bd-header-article button[title*="dark"],
+.bd-header-article .btn[title*="theme"] {
+    display: inline-block !important;
+}
+
+/* Add a collapse button for the TOC */
+.toc-collapse-button {
+    position: absolute !important;
+    top: -10px !important;
+    right: 10px !important;
+    background: none !important;
+    border: none !important;
+    font-size: 1.2em !important;
+    cursor: pointer !important;
+    z-index: 1000 !important;
+    color: #007bff !important;
+    padding: 5px !important;
+    border-radius: 3px !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Dark mode for collapse button */
+[data-theme="dark"] .toc-collapse-button,
+body[data-theme="dark"] .toc-collapse-button {
+    color: #66b3ff !important;
+}
+
+.toc-collapse-button:hover {
+    background-color: #f8f9fa !important;
+    color: #0056b3 !important;
+}
+
+/* Collapsible TOC behavior */
+.bd-sidebar-secondary {
+    transition: width 0.3s ease, opacity 0.3s ease !important;
+    position: relative !important;
+}
+
+.bd-sidebar-secondary.toc-collapsed {
+    width: 40px !important;
+    overflow: hidden !important;
+}
+
+.bd-sidebar-secondary.toc-collapsed .bd-toc {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.bd-sidebar-secondary.toc-collapsed .toc-collapse-button::before {
+    content: "☰" !important;
+}
+
+.bd-sidebar-secondary:not(.toc-collapsed) .toc-collapse-button::before {
+    content: "✕" !important;
+}
+
+/* Expand main content to full width and prevent TOC overlap */
+.bd-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* Ensure main content doesn't get overlapped by TOC */
+.bd-main .bd-content {
+    margin-right: 280px !important; /* Space for TOC */
+    max-width: calc(100% - 280px) !important;
+}
+
+/* On smaller screens, adjust content margin */
+@media (max-width: 1200px) {
+    .bd-main .bd-content {
+        margin-right: 250px !important;
+        max-width: calc(100% - 250px) !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .bd-main .bd-content {
+        margin-right: 220px !important;
+        max-width: calc(100% - 220px) !important;
+    }
+}
+
+/* Style the right TOC for better collapsible behavior */
+.bd-toc {
+    position: sticky !important;
+    top: 1rem !important;
+    max-height: calc(100vh - 2rem) !important;
+    overflow-y: auto !important;
+}
+
+/* Fix TOC sidebar positioning and width */
+.bd-sidebar-secondary {
+    position: fixed !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 260px !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    background: white !important;
+    border-left: 1px solid #e9ecef !important;
+    padding: 1rem !important;
+    z-index: 100 !important;
+}
+
+/* Dark mode for sidebar */
+[data-theme="dark"] .bd-sidebar-secondary,
+body[data-theme="dark"] .bd-sidebar-secondary {
+    background: #1a1a1a !important;
+    border-left: 1px solid #444 !important;
+}
+
+/* Hide ALL subsections by default - only show top level */
+.bd-toc nav ul li ul {
+    display: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Only show subsections when parent has 'expanded' class */
+.bd-toc nav ul li.expanded > ul {
+    display: block !important;
+}
+
+/* Style for expandable items - add click cursor */
+.bd-toc nav ul li:has(ul) > span,
+.bd-toc nav ul li:has(ul) > a {
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+/* Clean, inline arrows for ALL collapsible items */
+.bd-toc nav li.toc-collapsible > a::before {
+    content: "▶" !important;
+    display: inline-block !important;
+    margin-right: 0.5rem !important;
+    transition: transform 0.2s ease !important;
+    font-size: 0.8em !important;
+    color: #007bff !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    width: 10px !important;
+    text-align: center !important;
+}
+
+/* Dark mode arrow colors */
+[data-theme="dark"] .bd-toc nav li.toc-collapsible > a::before,
+body[data-theme="dark"] .bd-toc nav li.toc-collapsible > a::before {
+    color: #66b3ff !important;
+}
+
+/* Rotate arrow when expanded */
+.bd-toc nav li.toc-expanded > a::before {
+    transform: rotate(90deg) !important;
+}
+
+/* Remove any other arrows or icons */
+.bd-toc nav li:not(.toc-collapsible) > a::before {
+    display: none !important;
+}
+
+/* Ensure proper alignment of text */
+.bd-toc nav ul > li.toc-collapsible > a {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Make sure expanded sections are visible */
+.bd-toc nav ul > li.toc-expanded > ul {
+    display: block !important;
+    padding-left: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+/* Style the chapter links within expanded sections */
+.bd-toc nav ul > li.toc-expanded > ul li a {
+    font-size: 0.9em !important;
+    padding: 0.25rem 0 !important;
+    color: #6c757d !important;
+}
+
+/* Style top-level "Part" sections prominently */
+.bd-toc nav ul > li > a {
+    font-weight: 600 !important;
+    font-size: 1.05em !important;
+    padding: 0.7rem 0.5rem !important;
+    border-bottom: 1px solid #e9ecef !important;
+    display: block !important;
+    color: #495057 !important;
+}
+
+/* Dark mode support for top-level links */
+[data-theme="dark"] .bd-toc nav ul > li > a,
+body[data-theme="dark"] .bd-toc nav ul > li > a {
+    color: #ffffff !important;
+    border-bottom: 1px solid #444 !important;
+}
+
+/* Style subsections (chapters) */
+.bd-toc nav ul ul a {
+    font-weight: 400 !important;
+    font-size: 0.9em !important;
+    padding: 0.4rem 0.5rem 0.4rem 2rem !important;
+    color: #6c757d !important;
+    border-bottom: none !important;
+}
+
+/* Dark mode support for chapters */
+[data-theme="dark"] .bd-toc nav ul ul a,
+body[data-theme="dark"] .bd-toc nav ul ul a {
+    color: #e9ecef !important;
+}
+
+/* Style sub-subsections (sections) */
+.bd-toc nav ul ul ul a {
+    padding-left: 3rem !important;
+    font-size: 0.85em !important;
+    color: #868e96 !important;
+}
+
+/* Dark mode support for sections */
+[data-theme="dark"] .bd-toc nav ul ul ul a,
+body[data-theme="dark"] .bd-toc nav ul ul ul a {
+    color: #c8c9ca !important;
+}
+
+/* Style sub-sub-subsections (subsections) */
+.bd-toc nav ul ul ul ul a {
+    padding-left: 4rem !important;
+    font-size: 0.8em !important;
+    color: #adb5bd !important;
+}
+
+/* Dark mode support for subsections */
+[data-theme="dark"] .bd-toc nav ul ul ul ul a,
+body[data-theme="dark"] .bd-toc nav ul ul ul ul a {
+    color: #adb5bd !important;
+}
+
+/* Hover effects */
+.bd-toc nav a:hover {
+    background-color: #f8f9fa !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+}
+
+/* Current section highlighting */
+.bd-toc nav .current > a {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 4px !important;
+}
+
+/* Smooth transitions */
+.bd-toc nav ul {
+    transition: all 0.3s ease !important;
+}
+
+/* Clean up spacing */
+.bd-toc nav ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.bd-toc nav ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Hide the right sidebar completely on mobile */
+    .bd-sidebar-secondary {
+        display: none !important;
+    }
+    
+    /* Make main content full width on mobile */
+    .bd-main .bd-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-right: 0 !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* Adjust article spacing on mobile */
+    .bd-article {
+        padding: 1rem !important;
+    }
+    
+    /* Ensure no TOC overlap on mobile */
+    .bd-main,
+    .bd-content,
+    .bd-article {
+        margin-right: 0 !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Tablet responsiveness */
+@media (max-width: 992px) and (min-width: 769px) {
+    /* Make TOC narrower on tablets */
+    .bd-sidebar-secondary {
+        width: 200px !important;
+        min-width: 200px !important;
+    }
+    
+    /* Adjust main content width */
+    .bd-main .bd-content {
+        margin-right: 210px !important;
+    }
+}
+
+/* Add a mobile TOC toggle button */
+@media (max-width: 768px) {
+    /* Create a floating TOC toggle button for mobile */
+    .mobile-toc-toggle {
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 9999 !important;
+        background: #007bff !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 50% !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 18px !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Mobile TOC overlay */
+    .mobile-toc-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0,0,0,0.5) !important;
+        z-index: 9998 !important;
+        display: none !important;
+    }
+    
+    /* Mobile TOC panel */
+    .mobile-toc-panel {
+        position: fixed !important;
+        top: 0 !important;
+        right: -300px !important;
+        width: 300px !important;
+        height: 100vh !important;
+        background: white !important;
+        z-index: 9999 !important;
+        padding: 80px 20px 20px 20px !important;
+        overflow-y: auto !important;
+        transition: right 0.3s ease !important;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Dark mode for mobile panel */
+    [data-theme="dark"] .mobile-toc-panel,
+    body[data-theme="dark"] .mobile-toc-panel {
+        background: #1a1a1a !important;
+        color: white !important;
+    }
+    
+    /* Show mobile TOC when active */
+    .mobile-toc-active .mobile-toc-overlay {
+        display: block !important;
+    }
+    
+    .mobile-toc-active .mobile-toc-panel {
+        right: 0 !important;
+    }
+    
+    /* Close button in mobile panel */
+    .mobile-toc-close {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        background: none !important;
+        border: none !important;
+        font-size: 24px !important;
+        cursor: pointer !important;
+        color: #666 !important;
+    }
+    
+    /* Dark mode for close button */
+    [data-theme="dark"] .mobile-toc-close,
+    body[data-theme="dark"] .mobile-toc-close {
+        color: #ccc !important;
+    }
+}
